@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<title>Панель Администратора</title>
+<style>
+  body { background: #0f0f13; color: #e8e8f0; font-family: system-ui, sans-serif; padding: 30px; }
+  .layout { display: grid; grid-template-columns: 1fr 350px; gap: 30px; max-width: 1200px; margin: 0 auto; }
+  .container { background: #1a1a22; padding: 25px; border-radius: 12px; border: 1px solid #2e2e3e; }
+  .sidebar { background: #1a1a22; padding: 20px; border-radius: 12px; border: 1px solid #2e2e3e; display: flex; flex-direction: column; gap: 15px; max-height: 85vh; overflow-y: auto; }
+  h2, h3 { color: #7c6af7; margin-bottom: 15px; }
+  .form-group { display: flex; flex-direction: column; gap: 6px; margin-bottom: 14px; }
+  input, select, textarea { background: #0f0f13; border: 1px solid #2e2e3e; border-radius: 6px; padding: 10px; color: #e8e8f0; outline: none; font-size: 14px; }
+  .btn { background: #7c6af7; color: white; border: none; padding: 12px; border-radius: 6px; cursor: pointer; font-weight: bold; }
+  .btn:hover { background: #5b52d6; }
+  .episode-row { display: flex; flex-direction: column; gap: 6px; background: #22222e; padding: 12px; border-radius: 8px; border: 1px solid #2e2e3e; margin-bottom: 10px; }
+  .episode-inputs { display: flex; gap: 8px; align-items: center; }
+  .remove-ep { background: #e05c5c; border: none; color: white; padding: 10px; border-radius: 6px; cursor: pointer; }
+  .status-label { font-size: 12px; color: #6b6b82; }
+  .hidden { display: none !important; }
+  .db-item { background: #22222e; padding: 12px; border: 1px solid #2e2e3e; border-radius: 8px; display: flex; flex-direction: column; gap: 8px; }
+  .db-item-title { font-weight: bold; font-size: 14px; }
+  .edit-small-btn { background: #2e2e3e; color: #7c6af7; border: 1px solid #7c6af7; padding: 4px 8px; border-radius: 4px; cursor: pointer; font-size: 12px; align-self: flex-start; }
+  
+  /* Окно авторизации админа */
+  .lock-screen { position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; background: #0f0f13; display: flex; justify-content: center; align-items: center; z-index: 99999; }
+</style>
+</head>
+<body>
+
+<div id="lock-screen" class="lock-screen">
+  <div class="container" style="width: 320px; text-align: center;">
+    <h3>Вход в панель</h3>
+    <div class="form-group">
+      <input type="password" id="admin-pass-input" placeholder="Введите пароль админа">
+    </div>
+    <button class="btn" style="width: 100%;" onclick="checkAdminPassword()">Войти</button>
+    <p id="lock-error" style="color: #e05c5c; font-size: 13px; margin-top: 10px;"></p>
+  </div>
+</div>
+
+<div id="admin-content" class="layout hidden">
+  <div class="container">
+    <h2 id="form-mode-title">Добавить новый контент в БД</h2>
+    <form id="preset-form" onsubmit="savePreset(event)">
+      <input type="hidden" id="preset_id" value="">
+      <div class="form-group">
+        <label>Название релиза</label>
+        <input type="text" id="title" required placeholder="Например: Во все тяжкие">
+      </div>
+      <div class="form-group">
+        <label>Короткое описание</label>
+        <textarea id="description" rows="2" placeholder="Описание сюжета..."></textarea>
+      </div>
+      <div class="form-group">
+        <label>Тип контента</label>
+        <select id="preset_type">
+          <option value="movie">Фильм / Аниме-муви</option>
+          <option value="series">Сериал / Мультсериал</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label>Обложка</label>
+        <input type="file" id="cover" accept="image/*">
+      </div>
+
+      <h3 style="margin-top: 20px;">Серии / Части релиза</h3>
+      <div id="episodes-container"></div>
+      <button type="button" class="btn" style="background:#22222e; border:1px solid #2e2e3e; margin-bottom:15px;" onclick="addEpisodeRow()">➕ Добавить серию</button>
+
+      <div style="display:flex; gap:10px;">
+        <button type="submit" id="submit-btn" class="btn" style="flex:1;">Сохранить релиз в Базу Данных</button>
+        <button type="button" id="cancel-btn" class="btn hidden" style="background:#444;" onclick="resetForm()">Отмена</button>
+      </div>
+    </form>
+    <p id="status" style="margin-top:15px; text-align:center; font-weight:bold;"></p>
+  </div>
+
+  <div class="sidebar">
+    <h3>Существующий контент</h3>
+    <input type="text" id="sidebar-search" placeholder="Быстрый поиск по БД..." oninput="loadDBItems()">
+    <div id="db-items-list" style="display:flex; flex-direction:column; gap:10px;"></div>
+  </div>
+</div>
+
+<script>
+  let rowCounter = 0;
+  let cachedPresets = [];
+
+  function getAdminPassword() {
+    return sessionStorage.getItem('admin_password') || '';
+  }
+
+  async function checkAdminPassword() {
+    const password = document.getElementById('admin-pass-input').value;
+    const formData = new FormData();
+    formData.append('password', password);
+
+    const res = await fetch('/api/admin/verify', { method: 'POST', body: formData });
+    if (res.ok) {
+      sessionStorage.setItem('admin_password', password);
+      document.getElementById('lock-screen').classList.add('hidden');
+      document.getElementById('admin-content').classList.remove('hidden');
+      loadDBItems();
+    } else {
+      document.getElementById('lock-error').textContent = 'Неверный пароль!';
+    }
+  }
+
+  // Автоматический вход при обновлении страницы, если пароль уже вводился
+  if (getAdminPassword()) {
+    document.getElementById('lock-screen').classList.add('hidden');
+    document.getElementById('admin-content').classList.remove('hidden');
+  }
+
+  function addEpisodeRow(name='', type='link', src='') {
+    rowCounter++;
+    const id = rowCounter;
+    const container = document.getElementById('episodes-container');
+    const row = document.createElement('div');
+    row.className = 'episode-row';
+    row.id = `row-${id}`;
+    const isLocal = type === 'local';
+
+    row.innerHTML = `
+      <div class="episode-inputs">
+        <input type="text" placeholder="Название серии" class="ep-name" style="flex: 1;" value="${name}" required>
+        <select class="ep-type" onchange="toggleSourceInput(${id}, this.value)">
+          <option value="link" ${type==='link'?'selected':''}>Прямая ссылка (.mp4)</option>
+          <option value="youtube" ${type==='youtube'?'selected':''}>YouTube</option>
+          <option value="local" ${type==='local'?'selected':''}>Локальный файл</option>
+        </select>
+        <input type="text" placeholder="URL или ID" class="ep-src" id="src-${id}" style="flex: 1.5;" value="${src}" ${isLocal?'class="hidden"':'required'}>
+        <input type="file" accept="video/*" class="ep-file ${isLocal?'':'hidden'}" id="file-${id}" onchange="uploadVideoFile(${id})">
+        <button type="button" class="remove-ep" onclick="document.getElementById('row-${id}').remove()">❌</button>
+      </div>
+      <div class="status-label" id="status-${id}">${isLocal ? `✅ Загружен путь: ${src}` : ''}</div>
+    `;
+    container.appendChild(row);
+    if(isLocal) document.getElementById(`src-${id}`).dataset.uploaded = "true";
+  }
+
+  function toggleSourceInput(id, type) {
+    const srcInput = document.getElementById(`src-${id}`);
+    const fileInput = document.getElementById(`file-${id}`);
+    const statusLabel = document.getElementById(`status-${id}`);
+
+    if (type === 'local') {
+      srcInput.classList.add('hidden');
+      srcInput.removeAttribute('required');
+      fileInput.classList.remove('hidden');
+      statusLabel.textContent = "Выберите видеофайл...";
+    } else {
+      fileInput.classList.add('hidden');
+      srcInput.classList.remove('hidden');
+      srcInput.setAttribute('required', 'true');
+      statusLabel.textContent = "";
+      delete srcInput.dataset.uploaded;
+    }
+  }
+
+  async function uploadVideoFile(id) {
+    const fileInput = document.getElementById(`file-${id}`);
+    const srcInput = document.getElementById(`src-${id}`);
+    const statusLabel = document.getElementById(`status-${id}`);
+    const file = fileInput.files[0];
+    if (!file) return;
+
+    statusLabel.style.color = '#7c6af7';
+    statusLabel.textContent = `⏳ Загрузка...`;
+
+    const formData = new FormData();
+    formData.append('file', file);
+
+    try {
+      const response = await fetch('/api/admin/upload-video', { 
+        method: 'POST', 
+        body: formData,
+        headers: { 'x-admin-password': getAdminPassword() } // Передаем пароль в заголовке
+      });
+      const data = await response.json();
+      srcInput.value = data.url;
+      srcInput.dataset.uploaded = "true";
+      statusLabel.style.color = '#5ce087';
+      statusLabel.textContent = `✅ Сохранено: ${data.url}`;
+    } catch (err) {
+      statusLabel.style.color = '#e05c5c';
+      statusLabel.textContent = '❌ Ошибка авторизации или сервера!';
+    }
+  }
+
+  async function loadDBItems() {
+    if (!getAdminPassword()) return;
+    const query = document.getElementById('sidebar-search').value;
+    const response = await fetch(`/api/presets?q=${encodeURIComponent(query)}`);
+    cachedPresets = await response.json();
+    
+    const container = document.getElementById('db-items-list');
+    container.innerHTML = '';
+    cachedPresets.forEach(p => {
+      const el = document.createElement('div');
+      el.className = 'db-item';
+      el.innerHTML = `
+        <div class="db-item-title">${p.title}</div>
+        <button type="button" class="edit-small-btn" onclick="startEditPreset(${p.id})">✏️ Изменить</button>
+      `;
+      container.appendChild(el);
+    });
+  }
+
+  function startEditPreset(id) {
+    const preset = cachedPresets.find(p => p.id === id);
+    if (!preset) return;
+
+    document.getElementById('preset_id').value = preset.id;
+    document.getElementById('title').value = preset.title;
+    document.getElementById('description').value = preset.description;
+    document.getElementById('preset_type').value = preset.type;
+
+    document.getElementById('episodes-container').innerHTML = '';
+    preset.episodes.forEach(ep => addEpisodeRow(ep.name, ep.type, ep.src));
+
+    document.getElementById('form-mode-title').textContent = `Редактирование: ${preset.title}`;
+    document.getElementById('submit-btn').textContent = '💾 Сохранить изменения';
+    document.getElementById('cancel-btn').classList.remove('hidden');
+  }
+
+  function resetForm() {
+    document.getElementById('preset-form').reset();
+    document.getElementById('preset_id').value = '';
+    document.getElementById('episodes-container').innerHTML = '';
+    document.getElementById('form-mode-title').textContent = 'Добавить новый контент в БД';
+    document.getElementById('submit-btn').textContent = 'Сохранить в БД';
+    document.getElementById('cancel-btn').classList.add('hidden');
+    addEpisodeRow();
+  }
+
+  async function savePreset(e) {
+    e.preventDefault();
+    const status = document.getElementById('status');
+    status.textContent = 'Сохранение...';
+
+    const formData = new FormData();
+    formData.append('preset_id', document.getElementById('preset_id').value);
+    formData.append('title', document.getElementById('title').value);
+    formData.append('description', document.getElementById('description').value);
+    formData.append('preset_type', document.getElementById('preset_type').value);
+
+    const episodes = [];
+    document.querySelectorAll('.episode-row').forEach(row => {
+      episodes.push({
+        name: row.querySelector('.ep-name').value,
+        type: row.querySelector('.ep-type').value,
+        src: row.querySelector('.ep-src').value
+      });
+    });
+
+    formData.append('episodes_json', JSON.stringify(episodes));
+    const coverFile = document.getElementById('cover').files[0];
+    if (coverFile) formData.append('cover', coverFile);
+
+    const response = await fetch('/api/admin/presets', { 
+      method: 'POST', 
+      body: formData,
+      headers: { 'x-admin-password': getAdminPassword() }
+    });
+
+    if (response.ok) {
+      status.style.color = '#5ce087';
+      status.textContent = 'Успешно обновлено!';
+      resetForm();
+      loadDBItems();
+    } else {
+      status.style.color = '#e05c5c';
+      status.textContent = 'Ошибка сохранения (проверьте пароль)';
+    }
+  }
+
+  addEpisodeRow();
+  if (getAdminPassword()) loadDBItems();
+</script>
+</body>
+</html>

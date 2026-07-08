@@ -2,8 +2,7 @@
 <html lang="ru">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Watch Together</title>
+<title>Watch Together Ultimate (FastAPI)</title>
 <style>
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
   :root {
@@ -15,272 +14,660 @@
   header { padding: 0 20px; height: 52px; display: flex; align-items: center; justify-content: space-between; border-bottom: 1px solid var(--border); background: var(--surface); }
   .logo { font-size: 16px; font-weight: 600; display: flex; align-items: center; gap: 8px; }
   .logo-dot { width: 8px; height: 8px; border-radius: 50%; background: var(--accent); }
-  .viewers { display: flex; align-items: center; gap: 5px; font-size: 13px; color: var(--muted); }
-  .viewers-dot { width: 6px; height: 6px; border-radius: 50%; background: #4caf77; }
   .main { flex: 1; display: flex; overflow: hidden; }
   .video-panel { flex: 1; display: flex; flex-direction: column; min-width: 0; padding: 16px; gap: 12px; }
-  .video-wrap { flex: 1; background: #000; border-radius: var(--radius); overflow: hidden; display: flex; flex-direction: column; align-items: center; justify-content: center; position: relative; min-height: 0; }
-  video { width: 100%; height: 100%; object-fit: contain; display: none; }
-  video.loaded { display: block; }
-  .upload-zone { display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 14px; color: var(--muted); cursor: pointer; width: 100%; height: 100%; }
-  .upload-btn { background: var(--accent); color: #fff; border: none; padding: 10px 22px; border-radius: 8px; font-size: 14px; cursor: pointer; }
-  #file-input { display: none; }
-  .progress-bar { display: none; height: 4px; background: var(--border); border-radius: 99px; overflow: hidden; width: 100%; }
-  .progress-bar.show { display: block; }
-  .progress-fill { height: 100%; background: var(--accent); width: 0%; transition: width 0.1s; }
-  .share-bar { background: var(--surface); border: 1px solid var(--border); border-radius: 10px; padding: 10px 14px; display: none; align-items: center; gap: 10px; font-size: 13px; }
-  .share-bar.show { display: flex; }
-  .share-url { flex: 1; background: var(--bg); border: 1px solid var(--border); border-radius: 7px; padding: 7px 10px; font-family: monospace; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
-  .copy-btn { background: var(--surface2); border: 1px solid var(--border); color: var(--text); padding: 7px 14px; border-radius: 7px; cursor: pointer; }
+  .video-wrap { flex: 1; background: #000; border-radius: var(--radius); overflow: hidden; display: flex; align-items: center; justify-content: center; position: relative; min-height: 0; }
+  video, #yt-player { width: 100%; height: 100%; border: none; display: none; }
+  .active-player { display: block !important; }
   
-  /* Плейлист */
-  .playlist-box { background: var(--surface); border: 1px solid var(--border); border-radius: 10px; padding: 10px; display: none; flex-direction: column; gap: 5px; max-height: 120px; overflow-y: auto; }
+  .control-tabs { display: flex; gap: 8px; background: var(--surface); padding: 10px; border-radius: 10px; border: 1px solid var(--border); }
+  .tab-btn { background: var(--surface2); color: var(--text); border: 1px solid var(--border); padding: 6px 12px; border-radius: 6px; cursor: pointer; font-size: 13px; }
+  .inputs-zone { background: var(--surface); padding: 12px; border-radius: 10px; border: 1px solid var(--border); }
+  .hidden { display: none !important; }
+  
+  input { background: var(--bg); border: 1px solid var(--border); border-radius: 6px; padding: 8px 12px; color: var(--text); outline: none; font-size: 14px; }
+  .action-btn { background: var(--accent); color: white; border: none; padding: 8px 16px; border-radius: 6px; cursor: pointer; font-weight: 500; }
+  .danger-btn { background: #e05c5c; color: white; border: none; padding: 4px 8px; border-radius: 4px; cursor: pointer; font-size: 11px; }
+
+  .playlist-box { background: var(--surface); border: 1px solid var(--border); border-radius: 10px; padding: 10px; display: none; flex-direction: column; gap: 5px; max-height: 150px; overflow-y: auto; }
   .playlist-box.show { display: flex; }
-  .playlist-title { font-size: 12px; color: var(--muted); text-transform: uppercase; margin-bottom: 4px; }
-  .track-item { padding: 6px 10px; border-radius: 6px; font-size: 13px; cursor: pointer; background: var(--bg); border: 1px solid transparent; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
-  .track-item:hover { border-color: var(--border); }
-  .track-item.active { background: var(--accent); color: white; }
+  .track-item { padding: 6px 10px; border-radius: 6px; font-size: 13px; cursor: pointer; background: var(--bg); display: flex; justify-content: space-between; align-items: center; }
+  .track-item.active { background: var(--surface2); border-left: 4px solid var(--accent); }
+
+  .modal-overlay { position: fixed; inset: 0; background: rgba(0,0,0,0.7); display: flex; align-items: center; justify-content: center; z-index: 200; backdrop-filter: blur(5px); }
+  .catalog-card { background: var(--surface); width: 650px; max-width: 95%; height: 550px; border-radius: 16px; border: 1px solid var(--border); display: flex; flex-direction: column; padding: 20px; gap: 15px; }
+  .catalog-list { flex: 1; overflow-y: auto; display: flex; flex-direction: column; gap: 10px; }
 
   .chat-panel { width: 300px; flex-shrink: 0; display: flex; flex-direction: column; border-left: 1px solid var(--border); background: var(--surface); }
-  .chat-header { padding: 14px 16px; border-bottom: 1px solid var(--border); font-size: 14px; color: var(--muted); }
   .chat-messages { flex: 1; overflow-y: auto; padding: 12px; display: flex; flex-direction: column; gap: 6px; }
   .msg { background: var(--msg-bg); border-radius: 10px; padding: 8px 11px; font-size: 13.5px; border: 1px solid var(--border); }
-  .msg.system { background: transparent; border: none; text-align: center; color: var(--muted); font-size: 12px; }
-  .msg.own { background: #2a2060; border-color: #3d2e8a; }
-  .msg-name { font-weight: 600; font-size: 11px; color: var(--accent); margin-bottom: 3px; }
-  .chat-input-wrap { padding: 12px; border-top: 1px solid var(--border); display: flex; gap: 8px; }
-  .chat-input { flex: 1; background: var(--bg); border: 1px solid var(--border); border-radius: 8px; padding: 9px 12px; color: var(--text); outline: none; }
-  .send-btn { background: var(--accent); border: none; border-radius: 8px; color: #fff; width: 36px; height: 36px; cursor: pointer; display: flex; align-items: center; justify-content: center; }
+  .name-modal { position: fixed; inset: 0; background: rgba(0,0,0,0.8); display: flex; align-items: center; justify-content: center; z-index: 300; }
+  /* Мобильная адаптация */
+/* Полный мобайл адаптив с фиксацией видео сверху */
+.users-sidebar {
+  position: fixed;
+  top: 0;
+  left: -280px; /* Изначально спрятана */
+  width: 260px;
+  height: 100dvh;
+  background: var(--surface);
+  border-right: 1px solid var(--border);
+  z-index: 250;
+  transition: left 0.3s ease;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  box-shadow: 5px 0 15px rgba(0,0,0,0.5);
+}
+.users-sidebar.open {
+  left: 0; /* Показываем */
+}
+.sidebar-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.5);
+  z-index: 240;
+  display: none;
+  backdrop-filter: blur(2px);
+}
+.sidebar-overlay.show {
+  display: block;
+}
+.user-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 14px;
+  padding: 6px 0;
+}
+.status-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #5ce087; /* Зеленый онлайн */
+}
+@media (max-width: 768px) {
+  body {
+    height: 100dvh; /* Жестко держим высоту экрана */
+    overflow: hidden; /* Запрещаем скролл всей страницы, скроллиться будет только чат */
+    display: flex;
+    flex-direction: column;
+  }
+
+  header {
+    height: 44px; /* Чуть компактнее на мобилках */
+    flex-shrink: 0;
+  }
+
+  .main {
+    flex-direction: column;
+    overflow: hidden;
+    height: calc(100dvh - 44px); /* Занимает всё оставшееся место */
+  }
+
+  /* Панель с плеером намертво прижата наверх */
+  .video-panel {
+    padding: 8px;
+    gap: 8px;
+    flex-shrink: 0;
+    width: 100%;
+    background: var(--bg);
+    z-index: 10;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .video-wrap {
+    aspect-ratio: 16 / 9;
+    flex: none;
+    height: auto;
+    min-height: auto;
+  }
+
+  .control-tabs {
+    padding: 6px;
+    flex-wrap: nowrap;
+    overflow-x: auto; /* Если кнопки не влезут, их можно скроллить горизонтально */
+  }
   
-  .name-modal { position: fixed; inset: 0; background: rgba(0,0,0,0.8); display: flex; align-items: center; justify-content: center; z-index: 100; backdrop-filter: blur(4px); }
-  .name-card { background: var(--surface); border: 1px solid var(--border); border-radius: 16px; padding: 32px; width: 320px; display: flex; flex-direction: column; gap: 16px; }
-  .name-input { background: var(--bg); border: 1px solid var(--border); border-radius: 9px; padding: 11px 14px; color: var(--text); outline: none; width: 100%; }
-  .name-btn { background: var(--accent); border: none; border-radius: 9px; padding: 12px; color: #fff; font-weight: 500; cursor: pointer; }
+  .tab-btn {
+    padding: 6px 10px;
+    font-size: 12px;
+    white-space: nowrap;
+  }
+
+  .inputs-zone {
+    padding: 8px;
+  }
+
+  #tab-link, #tab-youtube {
+    flex-direction: column;
+    gap: 6px !important;
+  }
+
+  /* Чат занимает всё свободное место снизу */
+  .chat-panel {
+    flex: 1; 
+    width: 100%;
+    height: auto;
+    border-left: none;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+  }
+
+  /* Сообщения внутри чата скроллятся сами по себе */
+  .chat-messages {
+    flex: 1;
+    overflow-y: auto;
+    max-height: none; 
+    padding: 10px;
+  }
+
+  .chat-input-wrap {
+    padding: 8px;
+    background: var(--surface);
+    position: relative;
+  }
+
+  /* Модалка каталога на весь экран */
+  .catalog-card {
+    width: 100%;
+    height: 100dvh;
+    border-radius: 0;
+    border: none;
+  }
+}
 </style>
+<script src="https://www.youtube.com/iframe_api"></script>
 </head>
 <body>
-
+<div class="sidebar-overlay" id="sidebar-overlay" onclick="toggleSidebar(false)"></div>
+<div class="users-sidebar" id="users-sidebar">
+  <div style="display: flex; justify-content: space-between; align-items: center;">
+    <h3>В комнате</h3>
+    <button class="tab-btn" onclick="toggleSidebar(false)">❌</button>
+  </div>
+  <hr style="border: none; border-top: 1px solid var(--border);">
+  <div id="users-list-container" style="display: flex; flex-direction: column; gap: 8px; overflow-y: auto; flex: 1;">
+    </div>
+</div>
 <div class="name-modal" id="name-modal">
-  <div class="name-card">
+  <div style="background:var(--surface); padding:32px; border-radius:16px; width:320px; display:flex; flex-direction:column; gap:16px;">
     <h2>Как вас зовут?</h2>
-    <p style="font-size:14px; color:var(--muted)">Это имя увидят все в комнате</p>
-    <input class="name-input" id="name-input" placeholder="Ваше имя" maxlength="20" autofocus>
-    <button class="name-btn" onclick="joinRoom()">Войти</button>
+    <input id="name-input" placeholder="Ваше имя" maxlength="20" autofocus onkeydown="if(event.key==='Enter') joinRoom()">
+    <button class="action-btn" onclick="joinRoom()">Войти</button>
+  </div>
+</div>
+
+<div class="modal-overlay hidden" id="catalog-modal" onclick="toggleCatalog(false)">
+  <div class="catalog-card" onclick="event.stopPropagation()">
+    <div style="display:flex; justify-content:space-between; align-items:center; gap: 10px;">
+      <h3>Медиатека релизов</h3>
+      <input id="catalog-search" placeholder="Поиск фильма/сериала..." oninput="searchCatalog()" style="width: 250px;">
+      <button class="tab-btn" onclick="toggleCatalog(false)">❌ Закрыть</button>
+    </div>
+    <div class="catalog-list" id="catalog-items-container"></div>
   </div>
 </div>
 
 <header>
-  <div class="logo"><div class="logo-dot"></div>Watch Together</div>
-  <div class="viewers"><div class="viewers-dot"></div><span id="viewer-count">0 онлайн</span></div>
+  <div class="logo">
+    <button class="tab-btn" onclick="toggleSidebar(true)" style="padding: 4px 8px; margin-right: 5px;">👥 Участники</button>
+    <div class="logo-dot"></div>Watch Together
+  </div>
+  <div style="display: flex; align-items: center; gap: 10px;">
+    <div id="room-display-id" style="font-size:13px; color:var(--muted)">Комната: Загрузка...</div>
+    <button class="tab-btn" onclick="navigator.clipboard.writeText(location.href); alert('Ссылка скопирована!')">📋 Копировать ссылку</button>
+    <button class="tab-btn" style="background: var(--surface2)" onclick="location.href='/'">➕ Новая комната</button>
+  </div>
 </header>
 
 <div class="main">
   <div class="video-panel">
-    <div class="video-wrap" id="video-wrap">
-      <div class="upload-zone" id="upload-zone" onclick="document.getElementById('file-input').click()">
-        <p>Загрузить видео в комнату</p>
-        <button class="upload-btn" onclick="event.stopPropagation(); document.getElementById('file-input').click()">Выбрать файл</button>
-      </div>
-      <video id="video" controls preload="auto" playsinline></video>
+    <div class="video-wrap">
+      <div id="no-video-stub" style="color:var(--muted); position:absolute;">Плеер пуст. Откройте медиатеку.</div>
+      <video id="video" controls playsinline></video>
+      <div id="yt-player"></div>
     </div>
 
-    <div class="progress-bar" id="progress-bar"><div class="progress-fill" id="progress-fill"></div></div>
+    <div class="control-tabs">
+      <button class="tab-btn" onclick="switchTab('link')">🔗 Прямая ссылка</button>
+      <button class="tab-btn" onclick="switchTab('youtube')">🔴 YouTube</button>
+      <button class="tab-btn" style="background:var(--accent)" onclick="toggleCatalog(true)">🎬 Открыть Медиатеку</button>
+    </div>
+
+    <div class="inputs-zone">
+      <div id="tab-link" class="tab-content" style="display:flex; gap:8px;">
+        <input id="input-link-url" placeholder="Ссылка на файл .mp4" style="flex:1">
+        <input id="input-link-name" placeholder="Название трека">
+        <button class="action-btn" onclick="addDirectLink()">Добавить</button>
+      </div>
+      <div id="tab-youtube" class="tab-content hidden" style="display:flex; gap:8px;">
+        <input id="input-yt-url" placeholder="Ссылка на YouTube" style="flex:1">
+        <button class="action-btn" onclick="addYouTubeLink()">Добавить</button>
+      </div>
+    </div>
 
     <div class="playlist-box" id="playlist-box">
-      <div class="playlist-title">Плейлист комнаты:</div>
       <div id="tracks-list" style="display:flex; flex-direction:column; gap:4px;"></div>
     </div>
-
-    <div class="share-bar" id="share-bar">
-      <span style="color:var(--muted)">Ссылка:</span>
-      <div class="share-url" id="share-url"></div>
-      <button class="copy-btn" onclick="copyLink()">Копировать</button>
-      <button class="copy-btn" style="background:var(--accent)" onclick="document.getElementById('file-input').click()">+ Добавить ещё видео</button>
-    </div>
-
-    <input type="file" id="file-input" accept="video/*" onchange="uploadVideo(this)">
   </div>
 
   <div class="chat-panel">
-    <div class="chat-header">Чат</div>
     <div class="chat-messages" id="chat-messages"></div>
-    <div class="chat-input-wrap">
-      <input class="chat-input" id="chat-input" placeholder="Сообщение..." maxlength="300" onkeydown="if(event.key==='Enter') sendMessage()">
-      <button class="send-btn" onclick="sendMessage()">➡️</button>
+  <div class="chat-input-wrap" style="padding:12px; border-top:1px solid var(--border); display:flex; flex-direction:column; gap:8px;">
+      <input class="chat-input" id="chat-input" placeholder="Сообщение..." style="width:100%" onkeydown="if(event.key==='Enter') sendMessage()">
+      <button id="mic-btn" class="action-btn" style="background: var(--surface2); border: 1px solid var(--border); width: 100%; font-size: 13px; padding: 8px 12px; display: flex; align-items: center; justify-content: center; gap: 6px; transition: all 0.2s ease;" onclick="toggleMic()">
+        <span>🎤</span> <span id="mic-text">Микрофон: ВЫКЛ</span>
+      </button>
+      <div id="remote-audios" style="display:none;"></div>
     </div>
-  </div>
 </div>
 
 <script>
   let roomId = location.pathname.split('/room/')[1] || 'lobby';
-  let myName = '';
-  let ws = null;
-  let isSyncing = false;
-  let videoReady = false;
-  const video = document.getElementById('video');
+  let myName = '', ws = null, isSyncing = false, ytPlayer = null, currentTrackType = 'link';
 
-  function joinRoom() {
-    const val = document.getElementById('name-input').value.trim();
-    if (!val) return;
-    myName = val;
-    document.getElementById('name-modal').style.display = 'none';
-    connectWS();
+  function onYouTubeIframeAPIReady() {
+    ytPlayer = new YT.Player('yt-player', {
+      height: '100%', width: '100%',
+      playerVars: { 'autoplay': 0, 'controls': 1, 'rel': 0, 'enablejsapi': 1 },
+      events: { 'onStateChange': onPlayerStateChange }
+    });
   }
 
-  function connectWS() {
-    if (ws) ws.close();
-    const proto = location.protocol === 'https:' ? 'wss' : 'ws';
-    ws = new WebSocket(`${proto}://${location.host}/ws/${roomId}?name=${encodeURIComponent(myName)}`);
+function joinRoom() {
+  const inputName = document.getElementById('name-input').value.trim();
+  if (!inputName) return;
+  
+  myName = inputName;
+  localStorage.setItem('watch_together_name', myName);
+  
+  document.getElementById('name-modal').style.display = 'none';
+  
+  // Красиво выводим ID текущей комнаты в шапку
+  document.getElementById('room-display-id').textContent = 'Комната ID: ' + roomId;
+  
+  connectWS();
+}
 
-    ws.onmessage = e => {
-      const msg = JSON.parse(e.data);
-      if (msg.type === 'chat') addMsg(msg.name, msg.text, false);
-      else if (msg.type === 'viewers') document.getElementById('viewer-count').textContent = msg.count + ' онлайн';
-      else if (msg.type === 'sync') handleSync(msg);
-      else if (msg.type === 'playlist_update') updatePlaylistUI(msg.playlist, msg.current_index);
-    };
-    ws.onclose = () => addSystemMsg('Отключено от сервера. Переподключение...');
+  function toggleSidebar(show) {
+  document.getElementById('users-sidebar').classList.toggle('open', show);
+  document.getElementById('sidebar-overlay').classList.toggle('show', show);
+}
+
+// Измени функцию connectWS, добавив проверку room_users:
+function connectWS() {
+  const proto = location.protocol === 'https:' ? 'wss' : 'ws';
+  
+  // Перед подключением ПРИНУДИТЕЛЬНО берём актуальный ID из localStorage
+  myUserId = localStorage.getItem('watch_together_user_id') || null;
+
+  let url = `${proto}://${location.host}/ws/${roomId}?name=${encodeURIComponent(myName)}`;
+  if (myUserId && myUserId !== "null") {
+    url += `&user_id=${myUserId}`;
   }
 
-  function handleSync(msg) {
-    if (!videoReady) return;
-    isSyncing = true;
-    if (Math.abs(video.currentTime - msg.time) > 1.5) video.currentTime = msg.time;
-    if (msg.paused && !video.paused) video.pause();
-    else if (!msg.paused && video.paused) video.play().catch(() => {});
-    setTimeout(() => { isSyncing = false; }, 300);
-  }
-
-  // Event Listeners для синхронизации плеера
-  video.addEventListener('play', () => {
-    if (!isSyncing && ws?.readyState === 1) ws.send(JSON.stringify({ type: 'sync', paused: false, time: video.currentTime }));
-  });
-  video.addEventListener('pause', () => {
-    if (!isSyncing && ws?.readyState === 1) ws.send(JSON.stringify({ type: 'sync', paused: true, time: video.currentTime }));
-  });
-  video.addEventListener('seeked', () => {
-    if (!isSyncing && ws?.readyState === 1) ws.send(JSON.stringify({ type: 'sync', paused: video.paused, time: video.currentTime }));
-  });
-
-  async function uploadVideo(input) {
-    const file = input.files[0];
-    if (!file) return;
-
-    const bar = document.getElementById('progress-bar');
-    const fill = document.getElementById('progress-fill');
-    bar.classList.add('show');
-
-    const formData = new FormData();
-    formData.append('file', file);
-
-    const xhr = new XMLHttpRequest();
-    // Отправляем видео в контексте текущей комнаты
-    xhr.open('POST', `/upload/${roomId}`);
-
-    xhr.upload.onprogress = e => { if (e.lengthComputable) fill.style.width = (e.loaded / e.total * 100) + '%'; };
-    xhr.onload = () => {
-      bar.classList.remove('show');
-      if (xhr.status !== 200) return addSystemMsg('Ошибка загрузки сессии');
+  ws = new WebSocket(url);
+  
+  ws.onmessage = e => {
+    const msg = JSON.parse(e.data);
+    if (msg.type === 'chat') addMsg(msg.name, msg.text);
+    if (msg.type === 'playlist_update') renderPlaylist(msg.playlist, msg.current_index);
+    if (msg.type === 'sync') handleSyncCommand(msg);
+    if (msg.type === 'room_users') renderUsersList(msg.users);
+    if (msg.type === 'room_users') {
+      renderUsersList(msg.users);
       
-      const data = JSON.parse(xhr.responseText);
-      
-      // Если мы были в лобби и сервер выдал нам новый ID комнаты
-      if (roomId !== data.room_id) {
-        roomId = data.room_id;
-        history.pushState({}, '', `/room/${roomId}`);
-        connectWS(); // Переподключаем вебсокет к правильной новой комнате
-      }
-
-      document.getElementById('share-url').textContent = location.origin + '/room/' + roomId;
-      document.getElementById('share-bar').classList.add('show');
-      
-      // Уведомляем сервер об обновлении плейлиста для всех участников
-      setTimeout(() => {
-        if (ws && ws.readyState === 1) {
-          ws.send(JSON.stringify({ type: 'track_change', index: data.playlist.length - 1 }));
+      // Перебираем юзеров для создания звонка
+      msg.users.forEach(user => {
+        if (user.user_id !== myUserId && !peerConnections[user.user_id]) {
+          // Ролевая модель: создаем offer только если наш ID больше ID собеседника
+          // Это гарантирует, что только ОДИН из двух начнет звонок, избегая конфликта
+          const isOfferInitiator = myUserId > user.user_id; 
+          initWebRTCConnection(user.user_id, isOfferInitiator);
         }
-      }, 500);
-    };
-    xhr.send(formData);
+      });
+    }
+    if (msg.type === 'welcome') { 
+        // Сохраняем в переменную сессии
+        myUserId = msg.user_id; 
+        // И сразу же намертво пишем в память браузера
+        localStorage.setItem('watch_together_user_id', msg.user_id);
+    }
+    else if (msg.type === "webrtc_offer") { handleOffer(msg); }
+    else if (msg.type === "webrtc_answer") { peerConnections[msg.sender_id].setRemoteDescription(new RTCSessionDescription(msg.sdp)); }
+    else if (msg.type === "webrtc_candidate") { peerConnections[msg.sender_id].addIceCandidate(new RTCIceCandidate(msg.candidate)); }
+    else if (msg.type === "webrtc_user_disconnected") {
+        if (peerConnections[msg.user_id]) {
+            peerConnections[msg.user_id].close();
+            delete peerConnections[msg.user_id];
+            const el = document.getElementById(`audio-${msg.user_id}`);
+            if(el) el.remove();
+        }
+        const userElement = document.getElementById(`user-item-${msg.user_id}`);
+        if (userElement) userElement.remove();
+    }
+  };
+}
+
+// Функция рендеринга пользователей в панель
+function renderUsersList(users) {
+  const container = document.getElementById('users-list-container');
+  container.innerHTML = '';
+  users.forEach(u => {
+    const el = document.createElement('div');
+    el.className = 'user-item';
+    // Присваиваем ID, чтобы узел можно было легко удалить при дисконнекте
+    el.id = `user-item-${u.user_id}`; 
+    
+    const isMe = u.name === myName ? ' <span style="color:var(--muted); font-size:11px;">(Вы)</span>' : '';
+    el.innerHTML = `<div class="status-dot"></div><span>${u.name}${isMe}</span>`;
+    container.appendChild(el);
+  });
+}
+
+  const nativeVideo = document.getElementById('video');
+  nativeVideo.addEventListener('play', () => { if(!isSyncing && currentTrackType!=='youtube') sendSync(false, nativeVideo.currentTime); });
+  nativeVideo.addEventListener('pause', () => { if(!isSyncing && currentTrackType!=='youtube') sendSync(true, nativeVideo.currentTime); });
+  nativeVideo.addEventListener('seeked', () => { if(!isSyncing && currentTrackType!=='youtube') sendSync(nativeVideo.paused, nativeVideo.currentTime); });
+
+  function onPlayerStateChange(event) {
+    if (isSyncing || currentTrackType !== 'youtube') return;
+    if (event.data === YT.PlayerState.PLAYING) sendSync(false, ytPlayer.getCurrentTime(), 'youtube');
+    if (event.data === YT.PlayerState.PAUSED) sendSync(true, ytPlayer.getCurrentTime(), 'youtube');
   }
 
-  function loadVideo(filename) {
-    const src = `/video/${roomId}/${encodeURIComponent(filename)}`;
-    video.pause();
-    video.src = src;
-    video.load();
-    video.classList.add('loaded');
-    document.getElementById('upload-zone').style.display = 'none';
-    videoReady = true;
+  function sendSync(paused, time, type='native') {
+    if (ws?.readyState === 1) ws.send(JSON.stringify({ type: 'sync', player: type, paused: paused, time: time }));
   }
 
-  function updatePlaylistUI(playlist, currentIndex) {
+  function handleSyncCommand(msg) {
+    isSyncing = true;
+    if (msg.player === 'youtube' && ytPlayer?.seekTo) {
+      if (Math.abs(ytPlayer.getCurrentTime() - msg.time) > 2) ytPlayer.seekTo(msg.time, true);
+      if (msg.paused) ytPlayer.pauseVideo(); else ytPlayer.playVideo();
+    } else if (msg.player === 'native') {
+      if (Math.abs(nativeVideo.currentTime - msg.time) > 1.5) nativeVideo.currentTime = msg.time;
+      if (msg.paused) nativeVideo.pause(); else nativeVideo.play().catch(()=>{});
+    }
+    setTimeout(() => isSyncing = false, 400);
+  }
+
+  function renderPlaylist(playlist, currentIndex) {
+    const box = document.getElementById('playlist-box');
     const container = document.getElementById('tracks-list');
     container.innerHTML = '';
-    document.getElementById('playlist-box').classList.add('show');
+    if(!playlist.length) return box.classList.remove('show');
+    box.classList.add('show');
 
     playlist.forEach((track, idx) => {
       const el = document.createElement('div');
       el.className = `track-item ${idx === currentIndex ? 'active' : ''}`;
-      el.textContent = `${idx + 1}. ${track}`;
-      el.onclick = () => {
-        if (ws && ws.readyState === 1) ws.send(JSON.stringify({ type: 'track_change', index: idx }));
-      };
+      el.innerHTML = `
+        <span onclick="changeTrack(${idx})">▶️ ${track.name} [${track.type.toUpperCase()}]</span>
+        <button class="danger-btn" onclick="deleteTrack(${idx}, event)">Удалить</button>
+      `;
       container.appendChild(el);
     });
 
-    if (playlist[currentIndex]) {
-      loadVideo(playlist[currentIndex]);
+    const active = playlist[currentIndex];
+    if (active) {
+      document.getElementById('no-video-stub').style.display = 'none';
+      currentTrackType = active.type;
+      if (active.type === 'youtube') {
+        nativeVideo.classList.remove('active-player'); nativeVideo.pause();
+        document.getElementById('yt-player').classList.add('active-player');
+        if (ytPlayer?.cueVideoById) ytPlayer.cueVideoById(active.src);
+      } else {
+        document.getElementById('yt-player').classList.remove('active-player'); if(ytPlayer?.pauseVideo) ytPlayer.pauseVideo();
+        nativeVideo.classList.add('active-player'); nativeVideo.src = active.src; nativeVideo.load();
+      }
     }
+  }
+
+  async function deleteTrack(index, e) {
+    e.stopPropagation();
+    await fetch(`/api/room/${roomId}/remove/${index}`, { method: 'DELETE' });
+  }
+
+  function changeTrack(index) {
+    if (ws?.readyState === 1) ws.send(JSON.stringify({ type: 'track_change', index: index }));
+  }
+
+  function toggleCatalog(show) {
+    const modal = document.getElementById('catalog-modal');
+    if (show) { modal.classList.remove('hidden'); searchCatalog(); }
+    else modal.classList.add('hidden');
+  }
+
+  async function searchCatalog() {
+    const q = document.getElementById('catalog-search').value;
+    const r = await fetch(`/api/presets?q=${encodeURIComponent(q)}`);
+    const data = await r.json();
+    const container = document.getElementById('catalog-items-container');
+    container.innerHTML = '';
+
+    data.forEach(p => {
+      const el = document.createElement('div');
+      el.style = 'display: flex; gap: 15px; background: var(--surface2); padding: 12px; border-radius: 8px; border: 1px solid var(--border); margin-bottom:10px;';
+      el.innerHTML = `
+        <img src="${p.cover}" style="width: 90px; height: 130px; object-fit: cover; border-radius: 6px; flex-shrink: 0;">
+        <div style="flex: 1; display: flex; flex-direction: column; gap: 4px;">
+          <h4 style="font-size: 15px;">${p.title} <span style="font-size:11px;color:var(--muted)">(${p.type==='movie'?'Фильм':'Сериал'})</span></h4>
+          <p style="font-size:12px;color:var(--muted);">${p.description}</p>
+          <div style="margin-top:6px; display:flex; flex-direction:column; gap:4px; max-height:80px; overflow-y:auto;" id="episodes-${p.id}"></div>
+          <button class="action-btn" style="padding:4px 8px; font-size:12px; margin-top:auto; align-self:flex-start;" onclick="addPresetToRoom(${p.id}, -1)">Добавить весь релиз</button>
+        </div>
+      `;
+      container.appendChild(el);
+
+      const epContainer = document.getElementById(`episodes-${p.id}`);
+      p.episodes.forEach((ep, eIdx) => {
+        const row = document.createElement('div');
+        row.style = 'display:flex; justify-content:space-between; font-size:12px; background:var(--bg); padding:4px; border-radius:4px;';
+        row.innerHTML = `<span>${ep.name}</span> <a href="#" style="color:var(--accent); text-decoration:none;" onclick="addPresetToRoom(${p.id}, ${eIdx})">＋ Серию</a>`;
+        epContainer.appendChild(row);
+      });
+    });
+  }
+
+  async function addPresetToRoom(presetId, episodeIndex) {
+    const r = await fetch(`/api/presets`);
+    const presets = await r.json();
+    const preset = presets.find(p => p.id === presetId);
+    let itemsToAdd = (episodeIndex === -1) ? preset.episodes : [preset.episodes[episodeIndex]];
+
+    await fetch(`/api/room/${roomId}/add-content`, {
+      method: 'POST', headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ items: itemsToAdd })
+    });
+    toggleCatalog(false);
+  }
+
+  async function addYouTubeLink() {
+    const url = document.getElementById('input-yt-url').value.trim();
+    if(!url) return;
+    await fetch(`/api/room/${roomId}/add-content`, {
+      method: 'POST', headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ items: [{ type: 'youtube', src: url, name: 'YouTube Видео' }] })
+    });
+    document.getElementById('input-yt-url').value = '';
+  }
+
+  async function addDirectLink() {
+    const url = document.getElementById('input-link-url').value.trim();
+    const name = document.getElementById('input-link-name').value.trim() || 'Видео по ссылке';
+    if(!url) return;
+    await fetch(`/api/room/${roomId}/add-content`, {
+      method: 'POST', headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ items: [{ type: 'link', name: name, src: url }] })
+    });
+    document.getElementById('input-link-url').value = '';
+    document.getElementById('input-link-name').value = '';
+  }
+
+  function switchTab(tab) {
+    document.querySelectorAll('.tab-content').forEach(el => el.classList.add('hidden'));
+    document.getElementById(`tab-${tab}`).classList.remove('hidden');
   }
 
   function sendMessage() {
     const input = document.getElementById('chat-input');
-    const text = input.value.trim();
-    if (!text || !ws) return;
-    ws.send(JSON.stringify({ type: 'chat', text }));
-    addMsg(myName, text, true);
+    if(!input.value.trim() || !ws) return;
+    ws.send(JSON.stringify({ type: 'chat', text: input.value }));
+    addMsg(myName, input.value);
     input.value = '';
   }
 
-  function addMsg(name, text, own) {
-    const box = document.getElementById('chat-messages');
-    const d = document.createElement('div');
-    d.className = 'msg' + (own ? ' own' : '');
-    d.innerHTML = `<div class="msg-name">${escHtml(name)}</div>${escHtml(text)}`;
-    box.appendChild(d);
-    box.scrollTop = box.scrollHeight;
+  function addMsg(n, t) {
+    const b = document.getElementById('chat-messages');
+    b.innerHTML += `<div class="msg"><b style="color:var(--accent)">${n}:</b> ${t}</div>`;
+    b.scrollTop = b.scrollHeight;
   }
+let myUserId = localStorage.getItem('watch_together_user_id') || null
+let localStream = null;
+let peerConnections = {}; // { user_id: RTCPeerConnection }
+let isMicActive = false;
 
-  function addSystemMsg(text) {
-    const box = document.getElementById('chat-messages');
-    const d = document.createElement('div');
-    d.className = 'msg system';
-    d.textContent = text;
-    box.appendChild(d);
-    box.scrollTop = box.scrollHeight;
-  }
+const rtcConfig = { iceServers: [{ urls: 'stun:stun.l.google.com:19002' }] };
 
-  function copyLink() {
-    navigator.clipboard.writeText(document.getElementById('share-url').textContent).then(() => {
-      const btn = document.querySelector('.copy-btn');
-      btn.textContent = 'Скопировано!';
-      setTimeout(() => btn.textContent = 'Копировать', 2000);
-    });
-  }
-
-  function escHtml(s) { return s.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;'); }
-
-  // Получаем информацию о плейлисте при входе по прямой ссылке
-  if (roomId !== 'lobby') {
-    fetch(`/room-info/${roomId}`).then(r => r.json()).then(data => {
-      if (data.playlist && data.playlist.length > 0) {
-        document.getElementById('share-url').textContent = location.href;
-        document.getElementById('share-bar').classList.add('show');
-        updatePlaylistUI(data.playlist, data.current_index);
+// Добавь обработку новых типов сообщений внутрь твоего основного ws.onmessage:
+// (Вставь этот кусок кода в существующий switch/if твоего вебсокета)
+/*
+  if (data.type === "welcome") {
+      myUserId = data.user_id;
+  } else if (data.type === "webrtc_offer") {
+      handleOffer(data);
+  } else if (data.type === "webrtc_answer") {
+      peerConnections[data.sender_id].setRemoteDescription(new RTCSessionDescription(data.sdp));
+  } else if (data.type === "webrtc_candidate") {
+      peerConnections[data.sender_id].addIceCandidate(new RTCIceCandidate(data.candidate));
+  } else if (data.type === "webrtc_user_disconnected") {
+      if (peerConnections[data.user_id]) {
+          peerConnections[data.user_id].close();
+          delete peerConnections[data.user_id];
+          const el = document.getElementById(`audio-${data.user_id}`);
+          if(el) el.remove();
       }
+  }
+*/
+async function toggleMic() {
+  const btn = document.getElementById('mic-btn');
+  const btnText = document.getElementById('mic-text');
+  
+  if (!isMicActive) {
+    try {
+      localStream = await navigator.mediaDevices.getUserMedia({ audio: true });
+      isMicActive = true;
+      
+      // Красивый зеленый акцент, гармонирующий с темной темой
+      btnText.textContent = "Микрофон: ОНЛАЙН";
+      btn.style.background = "rgba(92, 224, 135, 0.15)";
+      btn.style.borderColor = "#5ce087";
+      btn.style.color = "#5ce087";
+      
+      ws.send(JSON.stringify({ type: "chat", text: "🎙️ Включил микрофон в прямом эфире!" }));
+    } catch (e) {
+      alert("Не удалось получить доступ к микрофону. Проверь разрешения в браузере.");
+    }
+  } else {
+    if (localStream) {
+      localStream.getTracks().forEach(track => track.stop());
+    }
+    isMicActive = false;
+    
+    // Возвращаем исходный дефолтный стиль интерфейса
+    btnText.textContent = "Микрофон: ВЫКЛ";
+    btn.style.background = "var(--surface2)";
+    btn.style.borderColor = "var(--border)";
+    btn.style.color = "var(--text)";
+    
+    Object.keys(peerConnections).forEach(id => {
+      peerConnections[id].close();
+      delete peerConnections[id];
     });
   }
+}
+function createPeerConnection(targetId) {
+  const pc = new RTCPeerConnection(rtcConfig);
+  peerConnections[targetId] = pc;
+
+  pc.onicecandidate = (event) => {
+    if (event.candidate) {
+      ws.send(JSON.stringify({ type: "webrtc_candidate", target_id: targetId, candidate: event.candidate }));
+    }
+  };
+
+  pc.ontrack = (event) => {
+    let audioEl = document.getElementById(`audio-${targetId}`);
+    if (!audioEl) {
+      audioEl = document.createElement('audio');
+      audioEl.id = `audio-${targetId}`;
+      audioEl.autoplay = true;
+      document.getElementById('remote-audios').appendChild(audioEl);
+    }
+    audioEl.srcObject = event.streams[0];
+  };
+
+  if (localStream) {
+    localStream.getTracks().forEach(track => pc.addTrack(track, localStream));
+  }
+  return pc;
+}
+
+async function handleOffer(msg) {
+    const senderId = msg.sender_id;
+    
+    // Если соединения с этим человеком еще нет — создаем его (как отвечающий, isOffer = false)
+    if (!peerConnections[senderId]) {
+        await initWebRTCConnection(senderId, false);
+    }
+    
+    const pc = peerConnections[senderId];
+    await pc.setRemoteDescription(new RTCSessionDescription(msg.sdp));
+    
+    const answer = await pc.createAnswer();
+    await pc.setLocalDescription(answer);
+    
+    ws.send(JSON.stringify({
+        type: 'webrtc_answer',
+        target_id: senderId,
+        sdp: pc.localDescription
+    }));
+}
+// Перехват входящих соединений при активации вещания у других (вызывается, когда кто-то активирует поток)
+// Для полной автоматизации, когда к комнате подключаются, можно рассылать пинги, но самый простой способ —
+// инициация связи происходит в момент, когда говорящий отправляет звуковой трек.
+// Автоматически проверяем имя при загрузке страницы
+
+window.addEventListener('DOMContentLoaded', () => {
+  const savedName = localStorage.getItem('watch_together_name');
+  if (savedName) {
+    myName = savedName;
+    document.getElementById('name-modal').style.display = 'none';
+    
+    // Заполняем ID комнаты при авто-входе
+    document.getElementById('room-display-id').textContent = 'Комната ID: ' + roomId;
+    
+    connectWS();
+  }
+});
+
+function joinRoom() {
+  const inputName = document.getElementById('name-input').value.trim();
+  if (!inputName) return;
+  
+  myName = inputName;
+  localStorage.setItem('watch_together_name', myName);
+  
+  document.getElementById('name-modal').style.display = 'none';
+  if(roomId !== 'lobby') {
+     document.getElementById('room-display-id').textContent = 'Комната ID: ' + roomId;
+  }
+  connectWS();
+}
 </script>
 </body>
 </html>
