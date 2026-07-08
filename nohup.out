@@ -1,0 +1,807 @@
+INFO:     Started server process [3851581]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+INFO:     Uvicorn running on http://127.0.0.1:8959 (Press CTRL+C to quit)
+INFO:     91.201.55.144:0 - "POST /create-room HTTP/1.1" 404 Not Found
+INFO:     91.201.55.144:0 - "POST /create-room HTTP/1.1" 200 OK
+INFO:     178.253.23.222:0 - "GET /azizi HTTP/1.1" 404 Not Found
+INFO:     178.253.23.222:0 - "GET / HTTP/1.1" 200 OK
+INFO:     127.0.0.1:53960 - "GET /room/azizi HTTP/1.1" 200 OK
+INFO:     Started server process [3861342]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+INFO:     Uvicorn running on http://127.0.0.1:8959 (Press CTRL+C to quit)
+INFO:     127.0.0.1:48464 - "GET /room/azizi HTTP/1.1" 200 OK
+INFO:     127.0.0.1:48470 - "GET /room-info/azizi HTTP/1.1" 200 OK
+INFO:     127.0.0.1:48482 - "GET /video/azizi/vpop.mp4 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:33704 - "GET /video/azizi/vpop.mp4 HTTP/1.1" 200 OK
+INFO:     ('127.0.0.1', 33710) - "WebSocket /ws/azizi?name=azizi" [accepted]
+INFO:     connection open
+INFO:     127.0.0.1:33724 - "GET /video/azizi/vpop.mp4 HTTP/1.1" 200 OK
+INFO:     178.253.23.222:0 - "GET /azizi HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:35226 - "GET /room/azizi HTTP/1.1" 200 OK
+INFO:     127.0.0.1:35242 - "GET /room-info/azizi HTTP/1.1" 200 OK
+INFO:     127.0.0.1:35248 - "GET /video/azizi/vpop.mp4 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:35258 - "GET /video/azizi/vpop.mp4 HTTP/1.1" 200 OK
+INFO:     ('127.0.0.1', 57480) - "WebSocket /ws/azizi?name=Sasha" [accepted]
+INFO:     connection open
+INFO:     127.0.0.1:57494 - "GET /video/azizi/vpop.mp4 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56848 - "GET /video/azizi/vpop.mp4 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56860 - "GET /video/azizi/vpop.mp4 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56870 - "GET /video/azizi/vpop.mp4 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56882 - "GET /video/azizi/vpop.mp4 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56890 - "GET /video/azizi/vpop.mp4 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:54372 - "GET /video/azizi/vpop.mp4 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:54384 - "GET /video/azizi/vpop.mp4 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:54390 - "GET /video/azizi/vpop.mp4 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:54392 - "GET /video/azizi/vpop.mp4 HTTP/1.1" 200 OK
+INFO:     connection closed
+INFO:     127.0.0.1:51740 - "GET /video/azizi/vpop.mp4 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:58214 - "GET /video/azizi/vpop.mp4 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:58226 - "GET /room/azizi HTTP/1.1" 200 OK
+INFO:     127.0.0.1:58228 - "GET /room-info/azizi HTTP/1.1" 200 OK
+INFO:     127.0.0.1:58230 - "GET /video/azizi/vpop.mp4 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:58234 - "GET /room/azizi HTTP/1.1" 200 OK
+INFO:     127.0.0.1:58242 - "GET /room-info/azizi HTTP/1.1" 200 OK
+INFO:     127.0.0.1:58256 - "GET /video/azizi/vpop.mp4 HTTP/1.1" 200 OK
+INFO:     ('127.0.0.1', 55590) - "WebSocket /ws/azizi?name=Lini" [accepted]
+INFO:     connection open
+INFO:     127.0.0.1:49776 - "GET /video/azizi/vpop.mp4 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:36808 - "GET /video/azizi/vpop.mp4 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:40040 - "GET /video/azizi/vpop.mp4 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:40048 - "GET /video/azizi/vpop.mp4 HTTP/1.1" 200 OK
+INFO:     connection closed
+INFO:     connection closed
+INFO:     127.0.0.1:45052 - "GET /video/azizi/vpop.mp4 HTTP/1.1" 200 OK
+INFO:     ('127.0.0.1', 45066) - "WebSocket /ws/azizi?name=Sasha" [accepted]
+INFO:     connection open
+INFO:     127.0.0.1:45082 - "GET /video/azizi/vpop.mp4 HTTP/1.1" 200 OK
+INFO:     connection closed
+INFO:     127.0.0.1:32862 - "GET /video/azizi/vpop.mp4 HTTP/1.1" 200 OK
+INFO:     ('127.0.0.1', 32866) - "WebSocket /ws/azizi?name=Sasha" [accepted]
+INFO:     connection open
+INFO:     127.0.0.1:32870 - "GET /video/azizi/vpop.mp4 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:32878 - "GET /video/azizi/vpop.mp4 HTTP/1.1" 200 OK
+INFO:     connection closed
+INFO:     127.0.0.1:42478 - "GET /video/azizi/vpop.mp4 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:42480 - "GET /video/azizi/vpop.mp4 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:48494 - "GET /video/azizi/vpop.mp4 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:44416 - "GET /video/azizi/vpop.mp4 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:44426 - "GET /room/azizi HTTP/1.1" 200 OK
+INFO:     127.0.0.1:44438 - "GET /room/azizi HTTP/1.1" 200 OK
+INFO:     127.0.0.1:44452 - "GET /room/azizi HTTP/1.1" 200 OK
+INFO:     127.0.0.1:44460 - "GET /room-info/azizi HTTP/1.1" 200 OK
+INFO:     127.0.0.1:58558 - "GET /video/azizi/vpop.mp4 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50998 - "GET /room/azizi HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51002 - "GET /room-info/azizi HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51018 - "GET /room/azizi HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51026 - "GET /video/azizi/vpop.mp4 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51028 - "GET /room-info/azizi HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51036 - "GET /video/azizi/vpop.mp4 HTTP/1.1" 200 OK
+INFO:     ('127.0.0.1', 51052) - "WebSocket /ws/azizi?name=Lini" [accepted]
+INFO:     connection open
+INFO:     127.0.0.1:58410 - "GET /video/azizi/vpop.mp4 HTTP/1.1" 200 OK
+INFO:     connection closed
+INFO:     127.0.0.1:38948 - "GET /video/azizi/vpop.mp4 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:44294 - "GET /room/azizi HTTP/1.1" 200 OK
+INFO:     127.0.0.1:44296 - "GET /room-info/azizi HTTP/1.1" 200 OK
+INFO:     127.0.0.1:44298 - "GET /video/azizi/vpop.mp4 HTTP/1.1" 200 OK
+INFO:     ('127.0.0.1', 44314) - "WebSocket /ws/azizi?name=Lini" [accepted]
+INFO:     connection open
+INFO:     127.0.0.1:40324 - "GET /room/azizi HTTP/1.1" 200 OK
+INFO:     connection closed
+INFO:     127.0.0.1:40326 - "GET /room-info/azizi HTTP/1.1" 200 OK
+INFO:     127.0.0.1:40330 - "GET /video/azizi/vpop.mp4 HTTP/1.1" 200 OK
+INFO:     ('127.0.0.1', 58020) - "WebSocket /ws/azizi?name=Lini" [accepted]
+INFO:     connection open
+INFO:     connection closed
+INFO:     127.0.0.1:58190 - "GET /room/azizi HTTP/1.1" 200 OK
+INFO:     127.0.0.1:58200 - "GET /room-info/azizi HTTP/1.1" 200 OK
+INFO:     127.0.0.1:58204 - "GET /video/azizi/vpop.mp4 HTTP/1.1" 200 OK
+INFO:     ('127.0.0.1', 45034) - "WebSocket /ws/azizi?name=aziz" [accepted]
+INFO:     connection open
+INFO:     127.0.0.1:45044 - "GET /video/azizi/vpop.mp4 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:45046 - "GET /video/azizi/vpop.mp4 HTTP/1.1" 200 OK
+INFO:     connection closed
+INFO:     Started server process [2406394]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+INFO:     Uvicorn running on http://127.0.0.1:8959 (Press CTRL+C to quit)
+INFO:     127.0.0.1:41258 - "GET /room/azizi HTTP/1.1" 200 OK
+INFO:     127.0.0.1:43476 - "GET /room/azizi HTTP/1.1" 200 OK
+INFO:     127.0.0.1:43482 - "GET /room-info/azizi HTTP/1.1" 200 OK
+INFO:     127.0.0.1:49132 - "GET /video/azizi/vpop.mp4 HTTP/1.1" 200 OK
+INFO:     ('127.0.0.1', 49134) - "WebSocket /ws/azizi?name=%D0%B0%D0%B7%D0%B8%D0%B7%D0%B8" [accepted]
+INFO:     connection open
+INFO:     127.0.0.1:54558 - "GET /room/azizi HTTP/1.1" 200 OK
+INFO:     connection closed
+INFO:     127.0.0.1:43650 - "GET /room-info/azizi HTTP/1.1" 200 OK
+INFO:     127.0.0.1:43660 - "GET /video/azizi/vpop.mp4 HTTP/1.1" 200 OK
+INFO:     ('127.0.0.1', 43664) - "WebSocket /ws/azizi?name=%D1%81%D0%B8%D1%81%D1%8C%D0%BA%D0%B8%20%D1%81%D0%B0%D1%88%D0%B8" [accepted]
+INFO:     connection open
+INFO:     127.0.0.1:43676 - "GET /room/azizi HTTP/1.1" 200 OK
+INFO:     connection closed
+INFO:     127.0.0.1:43686 - "GET /room-info/azizi HTTP/1.1" 200 OK
+INFO:     127.0.0.1:43700 - "GET /video/azizi/vpop.mp4 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:43708 - "GET /video/azizi/vpop.mp4 HTTP/1.1" 200 OK
+INFO:     ('127.0.0.1', 57248) - "WebSocket /ws/azizi?name=%D0%BB%D1%8E%D0%B1%D0%BB%D1%8E%20%D1%81%D0%B8%D1%81%D1%8C%D0%BA%D0%B8%20%D1%81%D0%B0%D1%88%D0%B8" [accepted]
+INFO:     connection open
+INFO:     127.0.0.1:46044 - "GET /room/azizi HTTP/1.1" 200 OK
+INFO:     127.0.0.1:46050 - "GET /room-info/azizi HTTP/1.1" 200 OK
+INFO:     127.0.0.1:46058 - "GET /video/azizi/vpop.mp4 HTTP/1.1" 200 OK
+INFO:     ('127.0.0.1', 56994) - "WebSocket /ws/azizi?name=lini" [accepted]
+INFO:     connection open
+INFO:     127.0.0.1:52486 - "GET /room/azizi HTTP/1.1" 200 OK
+INFO:     connection closed
+INFO:     127.0.0.1:52494 - "GET /room-info/azizi HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52508 - "GET /video/azizi/vpop.mp4 HTTP/1.1" 200 OK
+INFO:     ('127.0.0.1', 52512) - "WebSocket /ws/azizi?name=%D0%BB%D1%8E%D0%B1%D0%BB%D1%8E%20%D1%81%D0%B0%D1%88%D1%83" [accepted]
+INFO:     connection open
+INFO:     connection closed
+INFO:     127.0.0.1:54100 - "GET /room/azizi HTTP/1.1" 200 OK
+INFO:     127.0.0.1:54108 - "GET /room-info/azizi HTTP/1.1" 200 OK
+INFO:     127.0.0.1:54120 - "GET /video/azizi/vpop.mp4 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:43590 - "GET /room/azizi HTTP/1.1" 200 OK
+INFO:     connection closed
+INFO:     ('127.0.0.1', 43604) - "WebSocket /ws/azizi?name=Lini" [accepted]
+INFO:     connection open
+INFO:     127.0.0.1:43608 - "GET /room-info/azizi HTTP/1.1" 200 OK
+INFO:     127.0.0.1:43624 - "GET /video/azizi/vpop.mp4 HTTP/1.1" 200 OK
+INFO:     ('127.0.0.1', 43640) - "WebSocket /ws/azizi?name=%D1%81%D0%B0%D1%88%D0%B0%D0%B0%D0%B0%D0%B0%D0%B0%D0%B0%D0%B0%D0%B0%D0%B0%D0%B0%D0%B0%D0%B0%D0%B0%D0%B0%D0%B0%D0%B0" [accepted]
+INFO:     connection open
+INFO:     127.0.0.1:51016 - "GET /room/azizi HTTP/1.1" 200 OK
+INFO:     connection closed
+INFO:     127.0.0.1:51018 - "GET /room-info/azizi HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51032 - "GET /video/azizi/vpop.mp4 HTTP/1.1" 200 OK
+INFO:     ('127.0.0.1', 42140) - "WebSocket /ws/azizi?name=%D0%BB%D1%8E%D0%B1%D0%BB%D1%8E%20%D1%82%D0%B5%D0%B1%D1%8F%20%D1%81%D0%B0%D1%88%D0%B0" [accepted]
+INFO:     connection open
+INFO:     127.0.0.1:42152 - "GET /video/azizi/vpop.mp4 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:41566 - "GET /video/azizi/vpop.mp4 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:32910 - "GET /video/azizi/vpop.mp4 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:32918 - "GET /video/azizi/vpop.mp4 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:32930 - "GET /video/azizi/vpop.mp4 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:48406 - "GET /video/azizi/vpop.mp4 HTTP/1.1" 200 OK
+INFO:     connection closed
+INFO:     127.0.0.1:35242 - "GET /video/azizi/vpop.mp4 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:35254 - "GET /room/azizi HTTP/1.1" 200 OK
+INFO:     127.0.0.1:35268 - "GET /room-info/azizi HTTP/1.1" 200 OK
+INFO:     127.0.0.1:35274 - "GET /video/azizi/vpop.mp4 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:36026 - "GET /video/azizi/vpop.mp4 HTTP/1.1" 200 OK
+INFO:     ('127.0.0.1', 36038) - "WebSocket /ws/azizi?name=%D0%BB%D0%B8%D0%BD%D0%B8" [accepted]
+INFO:     connection open
+INFO:     127.0.0.1:60974 - "GET /video/azizi/vpop.mp4 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60984 - "GET /video/azizi/vpop.mp4 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:49880 - "GET /room/azizi HTTP/1.1" 200 OK
+INFO:     127.0.0.1:49888 - "GET /room-info/azizi HTTP/1.1" 200 OK
+INFO:     127.0.0.1:49904 - "GET /video/azizi/vpop.mp4 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:49912 - "GET /video/azizi/vpop.mp4 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:49928 - "GET /video/azizi/vpop.mp4 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:58840 - "GET /room/azizi HTTP/1.1" 200 OK
+INFO:     127.0.0.1:58850 - "GET /room-info/azizi HTTP/1.1" 200 OK
+INFO:     127.0.0.1:58858 - "GET /video/azizi/vpop.mp4 HTTP/1.1" 200 OK
+INFO:     ('127.0.0.1', 58862) - "WebSocket /ws/azizi?name=%D0%A1%D0%B8%D1%81%D1%8C%D0%BA%D0%B8" [accepted]
+INFO:     connection open
+INFO:     127.0.0.1:58878 - "GET /video/azizi/vpop.mp4 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:58880 - "GET /room/azizi HTTP/1.1" 200 OK
+INFO:     127.0.0.1:58894 - "GET /video/azizi/vpop.mp4 HTTP/1.1" 200 OK
+INFO:     ('127.0.0.1', 58902) - "WebSocket /ws/azizi?name=%D0%9B%D0%B8%D0%BD" [accepted]
+INFO:     connection open
+INFO:     127.0.0.1:58906 - "GET /video/azizi/vpop.mp4 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:48768 - "GET /video/azizi/vpop.mp4 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:48776 - "GET /video/azizi/vpop.mp4 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:48782 - "GET /video/azizi/vpop.mp4 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:48784 - "GET /video/azizi/vpop.mp4 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:48792 - "GET /video/azizi/vpop.mp4 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:48808 - "GET /video/azizi/vpop.mp4 HTTP/1.1" 200 OK
+INFO:     connection closed
+INFO:     connection closed
+INFO:     connection closed
+INFO:     127.0.0.1:33856 - "GET /room/azizi HTTP/1.1" 200 OK
+INFO:     127.0.0.1:33870 - "GET /room-info/azizi HTTP/1.1" 200 OK
+INFO:     127.0.0.1:33872 - "GET /video/azizi/vpop.mp4 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:33882 - "GET /video/azizi/vpop.mp4 HTTP/1.1" 200 OK
+INFO:     ('127.0.0.1', 33888) - "WebSocket /ws/azizi?name=%D0%90%D0%B7%D0%B8%D0%B7" [accepted]
+INFO:     connection open
+INFO:     127.0.0.1:36080 - "GET /video/azizi/vpop.mp4 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:36090 - "GET /room/azizi HTTP/1.1" 200 OK
+INFO:     127.0.0.1:36102 - "GET /video/azizi/vpop.mp4 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:36110 - "GET /video/azizi/vpop.mp4 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:36112 - "GET /video/azizi/vpop.mp4 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:36124 - "GET /video/azizi/vpop.mp4 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:36126 - "GET /video/azizi/vpop.mp4 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:36134 - "GET /video/azizi/vpop.mp4 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:36138 - "GET /video/azizi/vpop.mp4 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:40124 - "GET /video/azizi/vpop.mp4 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:40140 - "GET /video/azizi/vpop.mp4 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:40144 - "GET /video/azizi/vpop.mp4 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:40156 - "GET /video/azizi/vpop.mp4 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:40158 - "GET /video/azizi/vpop.mp4 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:40172 - "GET /video/azizi/vpop.mp4 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:40180 - "GET /video/azizi/vpop.mp4 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:39286 - "GET /video/azizi/vpop.mp4 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:54296 - "GET /video/azizi/vpop.mp4 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:54300 - "GET /video/azizi/vpop.mp4 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:54306 - "GET /video/azizi/vpop.mp4 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:54320 - "GET /video/azizi/vpop.mp4 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:54336 - "GET /video/azizi/vpop.mp4 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:54344 - "GET /video/azizi/vpop.mp4 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:36438 - "GET /video/azizi/vpop.mp4 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:36440 - "GET /video/azizi/vpop.mp4 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:49498 - "GET /video/azizi/vpop.mp4 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:49506 - "GET /video/azizi/vpop.mp4 HTTP/1.1" 200 OK
+INFO:     connection closed
+INFO:     127.0.0.1:47484 - "GET /room/azizi HTTP/1.1" 200 OK
+INFO:     127.0.0.1:47488 - "GET /room-info/azizi HTTP/1.1" 200 OK
+INFO:     127.0.0.1:47500 - "GET /video/azizi/vpop.mp4 HTTP/1.1" 200 OK
+INFO:     ('127.0.0.1', 33910) - "WebSocket /ws/azizi?name=%D0%BB%D0%B8%D0%BD%D0%B8" [accepted]
+INFO:     connection open
+INFO:     127.0.0.1:33926 - "GET /video/azizi/vpop.mp4 HTTP/1.1" 200 OK
+INFO:     connection closed
+INFO:     127.0.0.1:41274 - "GET /room/azizi HTTP/1.1" 200 OK
+INFO:     127.0.0.1:41286 - "GET /room-info/azizi HTTP/1.1" 200 OK
+INFO:     127.0.0.1:41294 - "GET /video/azizi/vpop.mp4 HTTP/1.1" 200 OK
+INFO:     ('127.0.0.1', 41308) - "WebSocket /ws/azizi?name=%D0%BB%D0%B8%D0%BD%D0%B8" [accepted]
+INFO:     connection open
+INFO:     connection closed
+INFO:     127.0.0.1:33268 - "GET /video/azizi/vpop.mp4 HTTP/1.1" 200 OK
+INFO:     Started server process [2440291]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+INFO:     Uvicorn running on http://127.0.0.1:8959 (Press CTRL+C to quit)
+INFO:     127.0.0.1:39152 - "GET /room/azizi HTTP/1.1" 200 OK
+INFO:     127.0.0.1:43366 - "GET /room-info/azizi HTTP/1.1" 200 OK
+INFO:     127.0.0.1:43378 - "GET /video/azizi/vpop.mp4 HTTP/1.1" 206 Partial Content
+INFO:     ('127.0.0.1', 43388) - "WebSocket /ws/azizi?name=aziz" [accepted]
+INFO:     connection open
+INFO:     127.0.0.1:43392 - "GET /video/azizi/vpop.mp4 HTTP/1.1" 206 Partial Content
+INFO:     127.0.0.1:43396 - "GET /video/azizi/vpop.mp4 HTTP/1.1" 206 Partial Content
+INFO:     127.0.0.1:43400 - "GET /video/azizi/vpop.mp4 HTTP/1.1" 206 Partial Content
+INFO:     127.0.0.1:43410 - "GET /video/azizi/vpop.mp4 HTTP/1.1" 206 Partial Content
+INFO:     127.0.0.1:43422 - "GET /video/azizi/vpop.mp4 HTTP/1.1" 206 Partial Content
+INFO:     127.0.0.1:43424 - "GET /video/azizi/vpop.mp4 HTTP/1.1" 206 Partial Content
+INFO:     127.0.0.1:37556 - "GET /room/azizi HTTP/1.1" 200 OK
+INFO:     127.0.0.1:37558 - "GET /room-info/azizi HTTP/1.1" 200 OK
+INFO:     127.0.0.1:37570 - "GET /video/azizi/vpop.mp4 HTTP/1.1" 206 Partial Content
+INFO:     127.0.0.1:43372 - "GET /video/azizi/vpop.mp4 HTTP/1.1" 206 Partial Content
+INFO:     127.0.0.1:43380 - "GET /room/azizi HTTP/1.1" 200 OK
+INFO:     127.0.0.1:43382 - "GET /room-info/azizi HTTP/1.1" 200 OK
+INFO:     127.0.0.1:43390 - "GET /video/azizi/vpop.mp4 HTTP/1.1" 206 Partial Content
+INFO:     ('127.0.0.1', 43394) - "WebSocket /ws/azizi?name=%D0%BB%D0%B8%D0%BD%D0%B8" [accepted]
+INFO:     connection open
+INFO:     ('127.0.0.1', 40734) - "WebSocket /ws/azizi?name=%D0%A1%D0%B8%D1%81%D1%8C%D0%BA%D0%B8%20%D1%81%D0%B0%D1%88%D0%B8" [accepted]
+INFO:     connection open
+INFO:     127.0.0.1:40736 - "GET /video/azizi/vpop.mp4 HTTP/1.1" 206 Partial Content
+INFO:     127.0.0.1:40740 - "GET /video/azizi/vpop.mp4 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:40750 - "GET /room/azizi HTTP/1.1" 200 OK
+INFO:     127.0.0.1:40762 - "GET /video/azizi/vpop.mp4 HTTP/1.1" 206 Partial Content
+INFO:     127.0.0.1:40778 - "GET /video/azizi/vpop.mp4 HTTP/1.1" 206 Partial Content
+INFO:     127.0.0.1:40790 - "GET /video/azizi/vpop.mp4 HTTP/1.1" 206 Partial Content
+INFO:     127.0.0.1:40798 - "GET /video/azizi/vpop.mp4 HTTP/1.1" 206 Partial Content
+INFO:     127.0.0.1:40810 - "GET /video/azizi/vpop.mp4 HTTP/1.1" 206 Partial Content
+INFO:     127.0.0.1:40826 - "GET /video/azizi/vpop.mp4 HTTP/1.1" 206 Partial Content
+INFO:     127.0.0.1:40838 - "GET /video/azizi/vpop.mp4 HTTP/1.1" 206 Partial Content
+INFO:     127.0.0.1:40850 - "GET /room/azizi HTTP/1.1" 200 OK
+INFO:     connection closed
+INFO:     127.0.0.1:40856 - "GET /room-info/azizi HTTP/1.1" 200 OK
+INFO:     127.0.0.1:40870 - "GET /video/azizi/vpop.mp4 HTTP/1.1" 206 Partial Content
+INFO:     ('127.0.0.1', 52948) - "WebSocket /ws/azizi?name=%D0%BB%D0%B8%D0%BD%D0%B8" [accepted]
+INFO:     connection open
+INFO:     127.0.0.1:43454 - "GET /video/azizi/vpop.mp4 HTTP/1.1" 206 Partial Content
+INFO:     connection closed
+INFO:     connection closed
+INFO:     127.0.0.1:42342 - "GET /room/azizi HTTP/1.1" 200 OK
+INFO:     127.0.0.1:42344 - "GET /room-info/azizi HTTP/1.1" 200 OK
+INFO:     127.0.0.1:42356 - "GET /video/azizi/vpop.mp4 HTTP/1.1" 206 Partial Content
+INFO:     ('127.0.0.1', 51966) - "WebSocket /ws/azizi?name=%D0%BB%D0%B8%D0%BD" [accepted]
+INFO:     connection open
+INFO:     127.0.0.1:55904 - "GET /video/azizi/vpop.mp4 HTTP/1.1" 206 Partial Content
+INFO:     127.0.0.1:43384 - "GET /room/azizi HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50512 - "GET /video/azizi/vpop.mp4 HTTP/1.1" 206 Partial Content
+INFO:     127.0.0.1:40340 - "GET /video/azizi/vpop.mp4 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59138 - "GET /video/azizi/vpop.mp4 HTTP/1.1" 206 Partial Content
+INFO:     connection closed
+INFO:     127.0.0.1:47618 - "GET /room/azizi HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51276 - "GET /room/azizi HTTP/1.1" 200 OK
+INFO:     connection closed
+INFO:     127.0.0.1:51280 - "GET /room-info/azizi HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51296 - "GET /video/azizi/vpop.mp4 HTTP/1.1" 206 Partial Content
+INFO:     127.0.0.1:51298 - "GET /video/azizi/vpop.mp4 HTTP/1.1" 206 Partial Content
+INFO:     ('127.0.0.1', 51304) - "WebSocket /ws/azizi?name=aziz" [accepted]
+INFO:     connection open
+INFO:     127.0.0.1:40178 - "GET /room/azizi HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55236 - "GET /room-info/azizi HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55240 - "GET /video/azizi/vpop.mp4 HTTP/1.1" 206 Partial Content
+INFO:     ('127.0.0.1', 55256) - "WebSocket /ws/azizi?name=%D0%BB%D0%B8%D0%BD%D0%B8" [accepted]
+INFO:     connection open
+INFO:     127.0.0.1:41062 - "GET /video/azizi/vpop.mp4 HTTP/1.1" 206 Partial Content
+INFO:     127.0.0.1:41078 - "GET /room/azizi HTTP/1.1" 200 OK
+INFO:     connection closed
+INFO:     127.0.0.1:41080 - "GET /room-info/azizi HTTP/1.1" 200 OK
+INFO:     127.0.0.1:41082 - "GET /video/azizi/vpop.mp4 HTTP/1.1" 206 Partial Content
+INFO:     ('127.0.0.1', 41088) - "WebSocket /ws/azizi?name=%D0%BB%D0%B8%D0%BD%D0%B8" [accepted]
+INFO:     connection open
+INFO:     127.0.0.1:57606 - "GET /video/azizi/vpop.mp4 HTTP/1.1" 206 Partial Content
+INFO:     connection closed
+INFO:     127.0.0.1:37978 - "GET /room/azizi HTTP/1.1" 200 OK
+INFO:     127.0.0.1:37994 - "GET /room-info/azizi HTTP/1.1" 200 OK
+INFO:     127.0.0.1:38006 - "GET /video/azizi/vpop.mp4 HTTP/1.1" 206 Partial Content
+INFO:     ('127.0.0.1', 44594) - "WebSocket /ws/azizi?name=%D0%BB%D0%B8%D0%BD%D0%B8" [accepted]
+INFO:     connection open
+INFO:     Started server process [2467405]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+INFO:     Uvicorn running on http://127.0.0.1:8959 (Press CTRL+C to quit)
+INFO:     127.0.0.1:48092 - "GET /room/azizi HTTP/1.1" 200 OK
+INFO:     127.0.0.1:48100 - "GET /video/azizi/vpop.mp4 HTTP/1.1" 206 Partial Content
+INFO:     127.0.0.1:48110 - "GET /room-info/azizi HTTP/1.1" 200 OK
+INFO:     127.0.0.1:43156 - "GET /video/azizi/vpop.mp4 HTTP/1.1" 206 Partial Content
+INFO:     ('127.0.0.1', 43172) - "WebSocket /ws/azizi?name=fpbp" [accepted]
+INFO:     connection open
+INFO:     127.0.0.1:58184 - "GET /room/azizi HTTP/1.1" 200 OK
+INFO:     127.0.0.1:58190 - "GET /room-info/azizi HTTP/1.1" 200 OK
+INFO:     127.0.0.1:58198 - "GET /video/azizi/vpop.mp4 HTTP/1.1" 206 Partial Content
+INFO:     ('127.0.0.1', 55860) - "WebSocket /ws/azizi?name=%D0%BB%D0%B8%D0%BD%D0%B8" [accepted]
+INFO:     connection open
+INFO:     connection closed
+INFO:     127.0.0.1:56770 - "GET /room/azizi HTTP/1.1" 200 OK
+INFO:     connection closed
+INFO:     127.0.0.1:45084 - "GET /room-info/azizi HTTP/1.1" 200 OK
+INFO:     127.0.0.1:45096 - "GET /video/azizi/vpop.mp4 HTTP/1.1" 206 Partial Content
+INFO:     127.0.0.1:45112 - "GET /room/azizi HTTP/1.1" 200 OK
+INFO:     127.0.0.1:45126 - "GET /room-info/azizi HTTP/1.1" 200 OK
+INFO:     127.0.0.1:45134 - "GET /video/azizi/vpop.mp4 HTTP/1.1" 206 Partial Content
+INFO:     ('127.0.0.1', 45148) - "WebSocket /ws/azizi?name=%D0%BB%D0%B8%D0%BD%D0%B8" [accepted]
+INFO:     connection open
+INFO:     ('127.0.0.1', 44204) - "WebSocket /ws/azizi?name=sashalover" [accepted]
+INFO:     connection open
+INFO:     127.0.0.1:60144 - "GET /video/azizi/vpop.mp4 HTTP/1.1" 206 Partial Content
+INFO:     127.0.0.1:49280 - "GET /room/azizi HTTP/1.1" 200 OK
+INFO:     connection closed
+INFO:     127.0.0.1:49290 - "GET /room-info/azizi HTTP/1.1" 200 OK
+INFO:     127.0.0.1:49298 - "GET /video/azizi/vpop.mp4 HTTP/1.1" 206 Partial Content
+INFO:     ('127.0.0.1', 54478) - "WebSocket /ws/azizi?name=%D0%B0%D0%B7%D0%B8%D0%B7" [accepted]
+INFO:     connection open
+INFO:     127.0.0.1:54494 - "GET /room/azizi HTTP/1.1" 200 OK
+INFO:     connection closed
+INFO:     127.0.0.1:54498 - "GET /room-info/azizi HTTP/1.1" 200 OK
+INFO:     127.0.0.1:54500 - "GET /video/azizi/vpop.mp4 HTTP/1.1" 206 Partial Content
+INFO:     ('127.0.0.1', 58012) - "WebSocket /ws/azizi?name=%D0%BB%D0%B8%D0%BD%D0%B8" [accepted]
+INFO:     connection open
+INFO:     127.0.0.1:43810 - "GET /room/azizi HTTP/1.1" 200 OK
+INFO:     127.0.0.1:43826 - "GET /room-info/azizi HTTP/1.1" 200 OK
+INFO:     127.0.0.1:43832 - "GET /video/azizi/vpop.mp4 HTTP/1.1" 206 Partial Content
+INFO:     127.0.0.1:53102 - "GET /room/azizi HTTP/1.1" 200 OK
+INFO:     127.0.0.1:53116 - "GET /room-info/azizi HTTP/1.1" 200 OK
+INFO:     127.0.0.1:53128 - "GET /video/azizi/vpop.mp4 HTTP/1.1" 206 Partial Content
+INFO:     127.0.0.1:45784 - "GET /room/azizi HTTP/1.1" 200 OK
+INFO:     127.0.0.1:45788 - "GET /room-info/azizi HTTP/1.1" 200 OK
+INFO:     127.0.0.1:45798 - "GET /video/azizi/vpop.mp4 HTTP/1.1" 206 Partial Content
+INFO:     ('127.0.0.1', 45804) - "WebSocket /ws/azizi?name=%D0%BB%D0%B8%D0%BD%D0%B8" [accepted]
+INFO:     connection open
+INFO:     connection closed
+INFO:     connection closed
+INFO:     127.0.0.1:49374 - "GET /room/azizi HTTP/1.1" 200 OK
+INFO:     connection closed
+INFO:     127.0.0.1:49376 - "GET /room-info/azizi HTTP/1.1" 200 OK
+INFO:     127.0.0.1:49382 - "GET /video/azizi/vpop.mp4 HTTP/1.1" 206 Partial Content
+INFO:     ('127.0.0.1', 49742) - "WebSocket /ws/azizi?name=%D0%BD%D0%BE%D0%B6%D0%BA%D0%B8%20%D1%81%D0%B0%D1%88%D0%B8" [accepted]
+INFO:     connection open
+INFO:     127.0.0.1:51466 - "GET /room/azizi HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51482 - "GET /room-info/azizi HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51484 - "GET /video/azizi/vpop.mp4 HTTP/1.1" 206 Partial Content
+INFO:     ('127.0.0.1', 46930) - "WebSocket /ws/azizi?name=%D0%BB%D0%B8%D0%BD%D0%B8" [accepted]
+INFO:     connection open
+INFO:     127.0.0.1:37316 - "GET /video/azizi/vpop.mp4 HTTP/1.1" 206 Partial Content
+INFO:     127.0.0.1:47716 - "GET /video/azizi/vpop.mp4 HTTP/1.1" 206 Partial Content
+INFO:     127.0.0.1:60848 - "GET /video/azizi/vpop.mp4 HTTP/1.1" 206 Partial Content
+INFO:     127.0.0.1:55122 - "GET /room/azizi HTTP/1.1" 200 OK
+INFO:     connection closed
+INFO:     127.0.0.1:55138 - "GET /room-info/azizi HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55142 - "GET /video/azizi/vpop.mp4 HTTP/1.1" 206 Partial Content
+INFO:     ('127.0.0.1', 48050) - "WebSocket /ws/azizi?name=%D0%BB%D0%B8%D0%BD%D0%B8" [accepted]
+INFO:     connection open
+INFO:     127.0.0.1:37916 - "GET /video/azizi/vpop.mp4 HTTP/1.1" 206 Partial Content
+INFO:     127.0.0.1:37930 - "GET /room/azizi HTTP/1.1" 200 OK
+INFO:     connection closed
+INFO:     127.0.0.1:37940 - "GET /room-info/azizi HTTP/1.1" 200 OK
+INFO:     127.0.0.1:37946 - "GET /video/azizi/vpop.mp4 HTTP/1.1" 206 Partial Content
+INFO:     ('127.0.0.1', 37958) - "WebSocket /ws/azizi?name=%D0%BD%D0%BE%D0%B6%D0%BA%D0%B8%20%D1%81%D0%B0%D1%88%D0%B8" [accepted]
+INFO:     connection open
+INFO:     127.0.0.1:60182 - "GET /room/azizi HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60188 - "GET /room-info/azizi HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60194 - "GET /video/azizi/vpop.mp4 HTTP/1.1" 206 Partial Content
+INFO:     ('127.0.0.1', 55152) - "WebSocket /ws/azizi?name=%D0%A5%D1%83%D0%B9" [accepted]
+INFO:     connection open
+INFO:     127.0.0.1:50960 - "GET /video/azizi/vpop.mp4 HTTP/1.1" 206 Partial Content
+INFO:     connection closed
+INFO:     connection closed
+INFO:     127.0.0.1:49862 - "GET /room/azizi HTTP/1.1" 200 OK
+INFO:     connection closed
+INFO:     127.0.0.1:49874 - "GET /room-info/azizi HTTP/1.1" 200 OK
+INFO:     127.0.0.1:49880 - "GET /video/azizi/vpop.mp4 HTTP/1.1" 206 Partial Content
+INFO:     ('127.0.0.1', 49896) - "WebSocket /ws/azizi?name=%D0%BB%D0%B8%D0%BD%D0%B8" [accepted]
+INFO:     connection open
+INFO:     Started server process [2507958]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+INFO:     Uvicorn running on http://127.0.0.1:8959 (Press CTRL+C to quit)
+INFO:     127.0.0.1:45208 - "GET /room/azizi HTTP/1.1" 200 OK
+INFO:     127.0.0.1:45218 - "GET /room-info/azizi HTTP/1.1" 200 OK
+INFO:     127.0.0.1:45230 - "GET /video/azizi/vpop.mp4 HTTP/1.1" 206 Partial Content
+INFO:     ('127.0.0.1', 45244) - "WebSocket /ws/azizi?name=aziz" [accepted]
+INFO:     connection open
+INFO:     127.0.0.1:58012 - "GET /room/azizi HTTP/1.1" 200 OK
+INFO:     127.0.0.1:58016 - "GET /room-info/azizi HTTP/1.1" 200 OK
+INFO:     127.0.0.1:58028 - "GET /video/azizi/vpop.mp4 HTTP/1.1" 206 Partial Content
+INFO:     ('127.0.0.1', 58038) - "WebSocket /ws/azizi?name=%D0%BB%D0%B8%D0%BD%D0%B8" [accepted]
+INFO:     connection open
+INFO:     127.0.0.1:32936 - "GET /video/azizi/vpop.mp4 HTTP/1.1" 206 Partial Content
+INFO:     127.0.0.1:32952 - "GET /video/azizi/vpop.mp4 HTTP/1.1" 206 Partial Content
+INFO:     127.0.0.1:32968 - "GET /video/azizi/vpop.mp4 HTTP/1.1" 206 Partial Content
+INFO:     127.0.0.1:44236 - "GET /video/azizi/vpop.mp4 HTTP/1.1" 206 Partial Content
+INFO:     127.0.0.1:44250 - "GET /video/azizi/vpop.mp4 HTTP/1.1" 206 Partial Content
+INFO:     127.0.0.1:35558 - "GET /video/azizi/vpop.mp4 HTTP/1.1" 206 Partial Content
+INFO:     127.0.0.1:35562 - "GET /video/azizi/vpop.mp4 HTTP/1.1" 206 Partial Content
+INFO:     127.0.0.1:33302 - "GET /video/azizi/vpop.mp4 HTTP/1.1" 206 Partial Content
+INFO:     127.0.0.1:33314 - "GET /video/azizi/vpop.mp4 HTTP/1.1" 206 Partial Content
+INFO:     127.0.0.1:34418 - "GET /video/azizi/vpop.mp4 HTTP/1.1" 206 Partial Content
+INFO:     127.0.0.1:34422 - "GET /video/azizi/vpop.mp4 HTTP/1.1" 206 Partial Content
+INFO:     144.124.196.67:0 - "GET / HTTP/1.1" 200 OK
+INFO:     127.0.0.1:34782 - "GET /room-info/sasha-and-aziz/ HTTP/1.1" 307 Temporary Redirect
+INFO:     ('127.0.0.1', 34784) - "WebSocket /ws/sasha-and-aziz/?name=%D0%B0%D0%B7%D0%B8%D0%B7%D0%B8%D0%B7" 403
+INFO:     connection rejected (403 Forbidden)
+INFO:     connection closed
+INFO:     127.0.0.1:57526 - "GET /video/azizi/vpop.mp4 HTTP/1.1" 206 Partial Content
+INFO:     127.0.0.1:47254 - "GET /video/azizi/vpop.mp4 HTTP/1.1" 206 Partial Content
+INFO:     127.0.0.1:57138 - "POST /upload HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52136 - "GET /video/fbf1e409/V_poiskah_Alyaski_1_sezon_-_2_seriya_%28anwap.org%29.mp4 HTTP/1.1" 206 Partial Content
+INFO:     127.0.0.1:36556 - "GET /room/fbf1e409 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:36562 - "GET /room-info/fbf1e409 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:36570 - "GET /video/fbf1e409/V_poiskah_Alyaski_1_sezon_-_2_seriya_%28anwap.org%29.mp4 HTTP/1.1" 206 Partial Content
+INFO:     ('127.0.0.1', 55612) - "WebSocket /ws/fbf1e409?name=%D0%BB%D1%8E%D0%B1%D0%BB%D1%8E%20%D1%81%D0%B0%D1%88%D1%83%20%D0%BC%D0%B8%D0%BB%D0%B0%D1%88%D0%BA%D1%83" [accepted]
+INFO:     connection open
+INFO:     connection closed
+INFO:     connection closed
+INFO:     connection closed
+INFO:     127.0.0.1:35454 - "GET /video/azizi/vpop.mp4 HTTP/1.1" 206 Partial Content
+INFO:     188.113.212.205:0 - "GET / HTTP/1.1" 200 OK
+INFO:     127.0.0.1:54882 - "GET /room-info/sasha-and-aziz/ HTTP/1.1" 307 Temporary Redirect
+INFO:     ('127.0.0.1', 48110) - "WebSocket /ws/sasha-and-aziz/?name=Aziz" 403
+INFO:     connection rejected (403 Forbidden)
+INFO:     connection closed
+INFO:     127.0.0.1:57612 - "GET /room/azizi HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57626 - "GET /room-info/azizi HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57630 - "GET /video/azizi/vpop.mp4 HTTP/1.1" 206 Partial Content
+INFO:     127.0.0.1:57632 - "GET /video/azizi/vpop.mp4 HTTP/1.1" 206 Partial Content
+INFO:     ('127.0.0.1', 60362) - "WebSocket /ws/azizi?name=Aziz" [accepted]
+INFO:     connection open
+INFO:     127.0.0.1:60376 - "GET /video/azizi/vpop.mp4 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60392 - "GET /room/azizi HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60394 - "GET /video/azizi/vpop.mp4 HTTP/1.1" 206 Partial Content
+INFO:     127.0.0.1:60406 - "GET /video/azizi/vpop.mp4 HTTP/1.1" 206 Partial Content
+INFO:     connection closed
+INFO:     127.0.0.1:49070 - "GET /room/azizi HTTP/1.1" 200 OK
+INFO:     127.0.0.1:49082 - "GET /room-info/azizi HTTP/1.1" 200 OK
+INFO:     127.0.0.1:36624 - "GET /video/azizi/vpop.mp4 HTTP/1.1" 206 Partial Content
+INFO:     ('127.0.0.1', 45808) - "WebSocket /ws/azizi?name=aziz" [accepted]
+INFO:     connection open
+INFO:     198.163.193.169:0 - "GET / HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60988 - "GET /room-info/sasha-and-aziz/ HTTP/1.1" 307 Temporary Redirect
+INFO:     connection closed
+INFO:     ('127.0.0.1', 32772) - "WebSocket /ws/sasha-and-aziz/?name=aziz" 403
+INFO:     connection rejected (403 Forbidden)
+INFO:     connection closed
+INFO:     127.0.0.1:57368 - "GET /room/fbf1e409 HTTP/1.1" 200 OK
+INFO:     198.163.193.169:0 - "GET / HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57390 - "GET /room-info/fbf1e409 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57394 - "GET /video/fbf1e409/V_poiskah_Alyaski_1_sezon_-_2_seriya_%28anwap.org%29.mp4 HTTP/1.1" 206 Partial Content
+INFO:     127.0.0.1:57406 - "GET /room-info/sasha-and-aziz/ HTTP/1.1" 307 Temporary Redirect
+INFO:     ('127.0.0.1', 38328) - "WebSocket /ws/fbf1e409?name=aziz" [accepted]
+INFO:     connection open
+INFO:     127.0.0.1:39034 - "GET /room/fbf1e409 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:39048 - "GET /room/fbf1e409 HTTP/1.1" 200 OK
+INFO:     connection closed
+INFO:     127.0.0.1:39058 - "GET /room/fbf1e409 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:39072 - "GET /room-info/fbf1e409 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:39080 - "GET /room-info/fbf1e409 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:39094 - "GET /video/fbf1e409/V_poiskah_Alyaski_1_sezon_-_2_seriya_%28anwap.org%29.mp4 HTTP/1.1" 206 Partial Content
+INFO:     127.0.0.1:39104 - "GET /video/fbf1e409/V_poiskah_Alyaski_1_sezon_-_2_seriya_%28anwap.org%29.mp4 HTTP/1.1" 206 Partial Content
+INFO:     ('127.0.0.1', 57842) - "WebSocket /ws/fbf1e409?name=%D0%BB%D0%B8%D0%BD%D0%B8" [accepted]
+INFO:     connection open
+INFO:     ('127.0.0.1', 37960) - "WebSocket /ws/fbf1e409?name=sasha%27s%20booblover" [accepted]
+INFO:     connection open
+INFO:     127.0.0.1:51300 - "GET /video/fbf1e409/V_poiskah_Alyaski_1_sezon_-_2_seriya_%28anwap.org%29.mp4 HTTP/1.1" 206 Partial Content
+INFO:     127.0.0.1:51314 - "GET /video/fbf1e409/V_poiskah_Alyaski_1_sezon_-_2_seriya_%28anwap.org%29.mp4 HTTP/1.1" 206 Partial Content
+INFO:     127.0.0.1:39382 - "GET /room/fbf1e409 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:39388 - "GET /room-info/fbf1e409 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:39404 - "GET /video/fbf1e409/V_poiskah_Alyaski_1_sezon_-_2_seriya_%28anwap.org%29.mp4 HTTP/1.1" 206 Partial Content
+INFO:     ('127.0.0.1', 39420) - "WebSocket /ws/fbf1e409?name=%D0%A1%D0%B8%D1%81%D1%8C%D0%BA%D0%B8%20%D0%A1%D0%B0%D1%88%D0%B8" [accepted]
+INFO:     connection open
+INFO:     127.0.0.1:40484 - "GET /video/fbf1e409/V_poiskah_Alyaski_1_sezon_-_2_seriya_%28anwap.org%29.mp4 HTTP/1.1" 206 Partial Content
+INFO:     127.0.0.1:40500 - "GET /video/fbf1e409/V_poiskah_Alyaski_1_sezon_-_2_seriya_%28anwap.org%29.mp4 HTTP/1.1" 206 Partial Content
+INFO:     connection closed
+INFO:     127.0.0.1:43796 - "GET /video/fbf1e409/V_poiskah_Alyaski_1_sezon_-_2_seriya_%28anwap.org%29.mp4 HTTP/1.1" 206 Partial Content
+INFO:     127.0.0.1:38890 - "GET /video/fbf1e409/V_poiskah_Alyaski_1_sezon_-_2_seriya_%28anwap.org%29.mp4 HTTP/1.1" 206 Partial Content
+INFO:     connection closed
+INFO:     connection closed
+INFO:     127.0.0.1:37852 - "GET /room/azizi HTTP/1.1" 200 OK
+INFO:     127.0.0.1:37862 - "GET /room/azizi HTTP/1.1" 200 OK
+INFO:     198.163.193.169:0 - "GET / HTTP/1.1" 200 OK
+INFO:     127.0.0.1:53800 - "GET /room-info/sasha-and-aziz/ HTTP/1.1" 307 Temporary Redirect
+INFO:     ('127.0.0.1', 40716) - "WebSocket /ws/sasha-and-aziz/?name=%D0%B0%D0%B7%D0%B8%D0%B7" 403
+INFO:     connection rejected (403 Forbidden)
+INFO:     connection closed
+INFO:     ('127.0.0.1', 36910) - "WebSocket /ws/sasha-and-aziz/?name=%D0%B0%D0%B7%D0%B8%D0%B7" 403
+INFO:     connection rejected (403 Forbidden)
+INFO:     connection closed
+INFO:     198.163.193.169:0 - "GET / HTTP/1.1" 200 OK
+INFO:     127.0.0.1:48756 - "GET /room-info/sasha-and-aziz/ HTTP/1.1" 307 Temporary Redirect
+INFO:     ('127.0.0.1', 48760) - "WebSocket /ws/sasha-and-aziz/?name=%D1%83" 403
+INFO:     connection rejected (403 Forbidden)
+INFO:     connection closed
+INFO:     127.0.0.1:52672 - "POST /upload HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52686 - "GET /video/044b927c/V_poiskah_Alyaski_1_sezon_-_3_seriya_%28anwap.org%29.mp4 HTTP/1.1" 206 Partial Content
+INFO:     127.0.0.1:48528 - "GET /room/044b927c HTTP/1.1" 200 OK
+INFO:     127.0.0.1:54112 - "GET /room-info/044b927c HTTP/1.1" 200 OK
+INFO:     127.0.0.1:54118 - "GET /video/044b927c/V_poiskah_Alyaski_1_sezon_-_3_seriya_%28anwap.org%29.mp4 HTTP/1.1" 206 Partial Content
+INFO:     ('127.0.0.1', 54134) - "WebSocket /ws/044b927c?name=%D0%BB%D1%8E%D0%B1%D0%BB%D1%8E%20%D1%81%D0%B0%D1%88" [accepted]
+INFO:     connection open
+INFO:     127.0.0.1:54146 - "GET /room/044b927c HTTP/1.1" 200 OK
+INFO:     connection closed
+INFO:     127.0.0.1:54150 - "GET /room-info/044b927c HTTP/1.1" 200 OK
+INFO:     127.0.0.1:49150 - "GET /video/044b927c/V_poiskah_Alyaski_1_sezon_-_3_seriya_%28anwap.org%29.mp4 HTTP/1.1" 206 Partial Content
+INFO:     ('127.0.0.1', 49166) - "WebSocket /ws/044b927c?name=%D0%BB%D1%8E%D0%B1%D0%BB%D1%8E%20%D1%81%D0%B0%D1%88%D1%83%20%D0%B8%20%D0%B5%D0%B5%20%D1%81%D0%B8%D1%81%D1%8C" [accepted]
+INFO:     connection open
+INFO:     127.0.0.1:45610 - "GET /room/044b927c HTTP/1.1" 200 OK
+INFO:     127.0.0.1:45618 - "GET /room-info/044b927c HTTP/1.1" 200 OK
+INFO:     127.0.0.1:45634 - "GET /video/044b927c/V_poiskah_Alyaski_1_sezon_-_3_seriya_%28anwap.org%29.mp4 HTTP/1.1" 206 Partial Content
+INFO:     127.0.0.1:45638 - "GET /room/044b927c HTTP/1.1" 200 OK
+INFO:     ('127.0.0.1', 45646) - "WebSocket /ws/044b927c?name=%D0%BB%D0%B8%D0%BD%D0%B8" [accepted]
+INFO:     connection open
+INFO:     127.0.0.1:55122 - "GET /video/044b927c/V_poiskah_Alyaski_1_sezon_-_3_seriya_%28anwap.org%29.mp4 HTTP/1.1" 206 Partial Content
+INFO:     127.0.0.1:37016 - "GET /room/044b927c HTTP/1.1" 200 OK
+INFO:     connection closed
+INFO:     127.0.0.1:35940 - "GET /room-info/044b927c HTTP/1.1" 200 OK
+INFO:     127.0.0.1:35944 - "GET /video/044b927c/V_poiskah_Alyaski_1_sezon_-_3_seriya_%28anwap.org%29.mp4 HTTP/1.1" 206 Partial Content
+INFO:     ('127.0.0.1', 59606) - "WebSocket /ws/044b927c?name=%D0%BB%D1%8E%D0%B1%D0%BB%D1%8E%20%D0%B3%D0%BB%D0%B0%D0%B7%D0%B0%20%D1%81%D0%B0%D1%88%D0%B8" [accepted]
+INFO:     connection open
+INFO:     127.0.0.1:59610 - "GET /video/044b927c/V_poiskah_Alyaski_1_sezon_-_3_seriya_%28anwap.org%29.mp4 HTTP/1.1" 206 Partial Content
+INFO:     127.0.0.1:53296 - "GET /video/044b927c/V_poiskah_Alyaski_1_sezon_-_3_seriya_%28anwap.org%29.mp4 HTTP/1.1" 206 Partial Content
+INFO:     127.0.0.1:53300 - "GET /video/044b927c/V_poiskah_Alyaski_1_sezon_-_3_seriya_%28anwap.org%29.mp4 HTTP/1.1" 206 Partial Content
+INFO:     127.0.0.1:53302 - "GET /video/044b927c/V_poiskah_Alyaski_1_sezon_-_3_seriya_%28anwap.org%29.mp4 HTTP/1.1" 206 Partial Content
+INFO:     127.0.0.1:49576 - "GET /video/044b927c/V_poiskah_Alyaski_1_sezon_-_3_seriya_%28anwap.org%29.mp4 HTTP/1.1" 206 Partial Content
+INFO:     127.0.0.1:55394 - "GET /video/044b927c/V_poiskah_Alyaski_1_sezon_-_3_seriya_%28anwap.org%29.mp4 HTTP/1.1" 206 Partial Content
+INFO:     198.163.193.169:0 - "GET / HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59430 - "GET /room-info/sasha-and-aziz/ HTTP/1.1" 307 Temporary Redirect
+INFO:     ('127.0.0.1', 59442) - "WebSocket /ws/sasha-and-aziz/?name=az" 403
+INFO:     connection rejected (403 Forbidden)
+INFO:     connection closed
+INFO:     connection closed
+INFO:     connection closed
+INFO:     127.0.0.1:34272 - "GET /room/azizi HTTP/1.1" 200 OK
+INFO:     127.0.0.1:34274 - "GET /room-info/azizi HTTP/1.1" 200 OK
+INFO:     127.0.0.1:34284 - "GET /video/azizi/vpop.mp4 HTTP/1.1" 206 Partial Content
+INFO:     ('127.0.0.1', 46276) - "WebSocket /ws/azizi?name=aziz" [accepted]
+INFO:     connection open
+INFO:     127.0.0.1:36458 - "GET /room/ HTTP/1.1" 404 Not Found
+INFO:     198.163.193.169:0 - "GET / HTTP/1.1" 200 OK
+INFO:     127.0.0.1:36480 - "GET /room-info/sasha-and-aziz/ HTTP/1.1" 307 Temporary Redirect
+INFO:     connection closed
+INFO:     ('127.0.0.1', 36484) - "WebSocket /ws/sasha-and-aziz/?name=aziz" 403
+INFO:     connection rejected (403 Forbidden)
+INFO:     connection closed
+INFO:     127.0.0.1:52340 - "POST /upload HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52342 - "GET /video/7c36a83b/V_poiskah_Alyaski_1_sezon_-_4_seriya_%28anwap.org%29.mp4 HTTP/1.1" 206 Partial Content
+INFO:     127.0.0.1:35836 - "GET /room/7c36a83b HTTP/1.1" 200 OK
+INFO:     127.0.0.1:35846 - "GET /room-info/7c36a83b HTTP/1.1" 200 OK
+INFO:     127.0.0.1:35852 - "GET /video/7c36a83b/V_poiskah_Alyaski_1_sezon_-_4_seriya_%28anwap.org%29.mp4 HTTP/1.1" 206 Partial Content
+INFO:     ('127.0.0.1', 38838) - "WebSocket /ws/7c36a83b?name=sasha%27s%20dog" [accepted]
+INFO:     connection open
+INFO:     127.0.0.1:32808 - "GET /room/7c36a83b HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52244 - "GET /room/7c36a83b HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52248 - "GET /room-info/7c36a83b HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52254 - "GET /video/7c36a83b/V_poiskah_Alyaski_1_sezon_-_4_seriya_%28anwap.org%29.mp4 HTTP/1.1" 206 Partial Content
+INFO:     ('127.0.0.1', 34482) - "WebSocket /ws/7c36a83b?name=%D0%BB%D0%B8%D0%BD%D0%B8" [accepted]
+INFO:     connection open
+INFO:     127.0.0.1:34498 - "GET /video/7c36a83b/V_poiskah_Alyaski_1_sezon_-_4_seriya_%28anwap.org%29.mp4 HTTP/1.1" 206 Partial Content
+INFO:     127.0.0.1:34500 - "GET /video/7c36a83b/V_poiskah_Alyaski_1_sezon_-_4_seriya_%28anwap.org%29.mp4 HTTP/1.1" 206 Partial Content
+INFO:     127.0.0.1:34508 - "GET /video/7c36a83b/V_poiskah_Alyaski_1_sezon_-_4_seriya_%28anwap.org%29.mp4 HTTP/1.1" 206 Partial Content
+INFO:     127.0.0.1:47780 - "GET /video/7c36a83b/V_poiskah_Alyaski_1_sezon_-_4_seriya_%28anwap.org%29.mp4 HTTP/1.1" 206 Partial Content
+INFO:     connection closed
+INFO:     connection closed
+INFO:     198.163.193.169:0 - "GET / HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50368 - "GET /room-info/sasha-and-aziz/ HTTP/1.1" 307 Temporary Redirect
+INFO:     ('127.0.0.1', 50380) - "WebSocket /ws/sasha-and-aziz/?name=azz" 403
+INFO:     connection rejected (403 Forbidden)
+INFO:     connection closed
+INFO:     127.0.0.1:58414 - "POST /upload HTTP/1.1" 200 OK
+INFO:     127.0.0.1:58422 - "GET /video/4427188e/V_poiskah_Alyaski_1_sezon_-_5_seriya_%28anwap.org%29.mp4 HTTP/1.1" 206 Partial Content
+INFO:     127.0.0.1:40456 - "GET /room/4427188e HTTP/1.1" 200 OK
+INFO:     127.0.0.1:40472 - "GET /room-info/4427188e HTTP/1.1" 200 OK
+INFO:     127.0.0.1:40488 - "GET /video/4427188e/V_poiskah_Alyaski_1_sezon_-_5_seriya_%28anwap.org%29.mp4 HTTP/1.1" 206 Partial Content
+INFO:     ('127.0.0.1', 41646) - "WebSocket /ws/4427188e?name=%D0%B2%D1%8B%D0%B5%D0%B1%D1%83%20%D1%81%D0%B0%D1%88%D1%83" [accepted]
+INFO:     connection open
+INFO:     127.0.0.1:43734 - "GET /room/4427188e HTTP/1.1" 200 OK
+INFO:     127.0.0.1:54728 - "GET /video/4427188e/V_poiskah_Alyaski_1_sezon_-_5_seriya_%28anwap.org%29.mp4 HTTP/1.1" 206 Partial Content
+INFO:     127.0.0.1:54736 - "GET /video/4427188e/V_poiskah_Alyaski_1_sezon_-_5_seriya_%28anwap.org%29.mp4 HTTP/1.1" 206 Partial Content
+INFO:     127.0.0.1:54742 - "GET /video/4427188e/V_poiskah_Alyaski_1_sezon_-_5_seriya_%28anwap.org%29.mp4 HTTP/1.1" 206 Partial Content
+INFO:     127.0.0.1:54748 - "GET /video/4427188e/V_poiskah_Alyaski_1_sezon_-_5_seriya_%28anwap.org%29.mp4 HTTP/1.1" 206 Partial Content
+INFO:     127.0.0.1:36320 - "GET /room/4427188e HTTP/1.1" 200 OK
+INFO:     127.0.0.1:36324 - "GET /room-info/4427188e HTTP/1.1" 200 OK
+INFO:     127.0.0.1:36330 - "GET /video/4427188e/V_poiskah_Alyaski_1_sezon_-_5_seriya_%28anwap.org%29.mp4 HTTP/1.1" 206 Partial Content
+INFO:     ('127.0.0.1', 43676) - "WebSocket /ws/4427188e?name=%D0%BB%D0%B8%D0%BD%D0%B8" [accepted]
+INFO:     connection open
+INFO:     127.0.0.1:45170 - "GET /video/4427188e/V_poiskah_Alyaski_1_sezon_-_5_seriya_%28anwap.org%29.mp4 HTTP/1.1" 206 Partial Content
+INFO:     127.0.0.1:45182 - "GET /video/4427188e/V_poiskah_Alyaski_1_sezon_-_5_seriya_%28anwap.org%29.mp4 HTTP/1.1" 206 Partial Content
+INFO:     127.0.0.1:45184 - "GET /video/4427188e/V_poiskah_Alyaski_1_sezon_-_5_seriya_%28anwap.org%29.mp4 HTTP/1.1" 206 Partial Content
+INFO:     127.0.0.1:52324 - "GET /video/4427188e/V_poiskah_Alyaski_1_sezon_-_5_seriya_%28anwap.org%29.mp4 HTTP/1.1" 206 Partial Content
+INFO:     127.0.0.1:38492 - "GET /room/4427188e HTTP/1.1" 200 OK
+INFO:     connection closed
+INFO:     127.0.0.1:38498 - "GET /room-info/4427188e HTTP/1.1" 200 OK
+INFO:     127.0.0.1:38514 - "GET /video/4427188e/V_poiskah_Alyaski_1_sezon_-_5_seriya_%28anwap.org%29.mp4 HTTP/1.1" 206 Partial Content
+INFO:     ('127.0.0.1', 59724) - "WebSocket /ws/4427188e?name=%D1%81%D0%BE%D0%B1%D0%B0%D1%87%D0%BA%D0%B0%20%D1%81%D0%B0%D1%88%D0%B8" [accepted]
+INFO:     connection open
+INFO:     127.0.0.1:38818 - "GET /video/4427188e/V_poiskah_Alyaski_1_sezon_-_5_seriya_%28anwap.org%29.mp4 HTTP/1.1" 206 Partial Content
+INFO:     127.0.0.1:38834 - "GET /video/4427188e/V_poiskah_Alyaski_1_sezon_-_5_seriya_%28anwap.org%29.mp4 HTTP/1.1" 206 Partial Content
+INFO:     127.0.0.1:38838 - "GET /video/4427188e/V_poiskah_Alyaski_1_sezon_-_5_seriya_%28anwap.org%29.mp4 HTTP/1.1" 206 Partial Content
+INFO:     127.0.0.1:38844 - "GET /video/4427188e/V_poiskah_Alyaski_1_sezon_-_5_seriya_%28anwap.org%29.mp4 HTTP/1.1" 206 Partial Content
+INFO:     127.0.0.1:38856 - "GET /video/4427188e/V_poiskah_Alyaski_1_sezon_-_5_seriya_%28anwap.org%29.mp4 HTTP/1.1" 206 Partial Content
+INFO:     127.0.0.1:38870 - "GET /video/4427188e/V_poiskah_Alyaski_1_sezon_-_5_seriya_%28anwap.org%29.mp4 HTTP/1.1" 206 Partial Content
+INFO:     connection closed
+INFO:     connection closed
+INFO:     198.163.193.169:0 - "GET / HTTP/1.1" 200 OK
+INFO:     127.0.0.1:44828 - "GET /room-info/sasha-and-aziz/ HTTP/1.1" 307 Temporary Redirect
+INFO:     ('127.0.0.1', 45168) - "WebSocket /ws/sasha-and-aziz/?name=Sasha" 403
+INFO:     connection rejected (403 Forbidden)
+INFO:     connection closed
+INFO:     127.0.0.1:59724 - "POST /upload HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59726 - "GET /video/02b03b2e/1000002410.mp4 HTTP/1.1" 206 Partial Content
+INFO:     127.0.0.1:60302 - "GET /room/02b03b2e HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60308 - "GET /room-info/02b03b2e HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60312 - "GET /video/02b03b2e/1000002410.mp4 HTTP/1.1" 206 Partial Content
+INFO:     ('127.0.0.1', 50520) - "WebSocket /ws/02b03b2e?name=%D0%9B%D1%8E%D0%B1%D0%BB%D1%8E%20%D1%81%D0%B0%D1%88%D0%B8%D0%BD%D1%8B%20%D1%81..." [accepted]
+INFO:     connection open
+INFO:     127.0.0.1:35122 - "GET /room/02b03b2e HTTP/1.1" 200 OK
+INFO:     127.0.0.1:35130 - "GET /video/02b03b2e/1000002410.mp4 HTTP/1.1" 206 Partial Content
+INFO:     127.0.0.1:52190 - "GET /video/02b03b2e/1000002410.mp4 HTTP/1.1" 206 Partial Content
+INFO:     127.0.0.1:52206 - "GET /video/02b03b2e/1000002410.mp4 HTTP/1.1" 206 Partial Content
+INFO:     127.0.0.1:52212 - "GET /video/02b03b2e/1000002410.mp4 HTTP/1.1" 206 Partial Content
+INFO:     127.0.0.1:52228 - "GET /video/02b03b2e/1000002410.mp4 HTTP/1.1" 206 Partial Content
+INFO:     127.0.0.1:51900 - "GET /room/02b03b2e HTTP/1.1" 200 OK
+INFO:     connection closed
+INFO:     127.0.0.1:51906 - "GET /room-info/02b03b2e HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51918 - "GET /video/02b03b2e/1000002410.mp4 HTTP/1.1" 206 Partial Content
+INFO:     ('127.0.0.1', 33524) - "WebSocket /ws/02b03b2e?name=%D0%9B%D1%8E%D0%B1%D0%BB%D1%8E%20%D1%81%D0%B0%D1%88%D0%B8%D0%BD%D1%8B%20%D1%81" [accepted]
+INFO:     connection open
+INFO:     connection closed
+INFO:     127.0.0.1:52012 - "GET /room/02b03b2e HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52026 - "GET /room-info/02b03b2e HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52034 - "GET /video/02b03b2e/1000002410.mp4 HTTP/1.1" 206 Partial Content
+INFO:     ('127.0.0.1', 42010) - "WebSocket /ws/02b03b2e?name=%D0%BB%D1%8E%D0%B1%D0%BB%D1%8E%20%D1%81%D0%B0%D1%88%D0%B8%D0%BD%D1%8B%20%D1%81%D0%B8...." [accepted]
+INFO:     connection open
+INFO:     127.0.0.1:58838 - "GET /room/02b03b2e HTTP/1.1" 200 OK
+INFO:     127.0.0.1:58840 - "GET /room-info/02b03b2e HTTP/1.1" 200 OK
+INFO:     127.0.0.1:58844 - "GET /video/02b03b2e/1000002410.mp4 HTTP/1.1" 206 Partial Content
+INFO:     ('127.0.0.1', 48648) - "WebSocket /ws/02b03b2e?name=%D0%BB%D0%B8%D0%BD%D0%B8" [accepted]
+INFO:     connection open
+INFO:     127.0.0.1:48658 - "GET /video/02b03b2e/1000002410.mp4 HTTP/1.1" 206 Partial Content
+INFO:     127.0.0.1:48674 - "GET /video/02b03b2e/1000002410.mp4 HTTP/1.1" 206 Partial Content
+INFO:     127.0.0.1:43634 - "GET /video/02b03b2e/1000002410.mp4 HTTP/1.1" 206 Partial Content
+INFO:     127.0.0.1:43638 - "GET /video/02b03b2e/1000002410.mp4 HTTP/1.1" 206 Partial Content
+INFO:     127.0.0.1:43650 - "GET /video/02b03b2e/1000002410.mp4 HTTP/1.1" 206 Partial Content
+INFO:     127.0.0.1:43654 - "GET /video/02b03b2e/1000002410.mp4 HTTP/1.1" 206 Partial Content
+INFO:     127.0.0.1:43670 - "GET /video/02b03b2e/1000002410.mp4 HTTP/1.1" 206 Partial Content
+INFO:     127.0.0.1:43672 - "GET /video/02b03b2e/1000002410.mp4 HTTP/1.1" 206 Partial Content
+INFO:     127.0.0.1:43686 - "GET /video/02b03b2e/1000002410.mp4 HTTP/1.1" 206 Partial Content
+INFO:     127.0.0.1:43692 - "GET /video/02b03b2e/1000002410.mp4 HTTP/1.1" 206 Partial Content
+INFO:     127.0.0.1:43706 - "GET /video/02b03b2e/1000002410.mp4 HTTP/1.1" 206 Partial Content
+INFO:     127.0.0.1:38078 - "GET /video/02b03b2e/1000002410.mp4 HTTP/1.1" 206 Partial Content
+INFO:     127.0.0.1:35410 - "GET /video/02b03b2e/1000002410.mp4 HTTP/1.1" 206 Partial Content
+INFO:     127.0.0.1:60540 - "GET /room/02b03b2e HTTP/1.1" 200 OK
+INFO:     connection closed
+INFO:     127.0.0.1:60544 - "GET /room-info/02b03b2e HTTP/1.1" 200 OK
+INFO:     127.0.0.1:47144 - "GET /video/02b03b2e/1000002410.mp4 HTTP/1.1" 206 Partial Content
+INFO:     ('127.0.0.1', 47146) - "WebSocket /ws/02b03b2e?name=%D0%B0%D0%B7%D0%B8%D0%B7%20%D0%BB%D1%8E%D0%B1%D0%B8%D1%82%20%D1%81%D0%B0%D1%88%D0%B8%D0%BD%D1%8B%20%D1%81%D0%B8" [accepted]
+INFO:     connection open
+INFO:     127.0.0.1:47162 - "GET /video/02b03b2e/1000002410.mp4 HTTP/1.1" 206 Partial Content
+INFO:     127.0.0.1:47166 - "GET /video/02b03b2e/1000002410.mp4 HTTP/1.1" 206 Partial Content
+INFO:     127.0.0.1:60100 - "GET /video/02b03b2e/1000002410.mp4 HTTP/1.1" 206 Partial Content
+INFO:     127.0.0.1:60114 - "GET /video/02b03b2e/1000002410.mp4 HTTP/1.1" 206 Partial Content
+INFO:     127.0.0.1:60128 - "GET /video/02b03b2e/1000002410.mp4 HTTP/1.1" 206 Partial Content
+INFO:     127.0.0.1:60136 - "GET /video/02b03b2e/1000002410.mp4 HTTP/1.1" 206 Partial Content
+INFO:     127.0.0.1:60142 - "GET /video/02b03b2e/1000002410.mp4 HTTP/1.1" 206 Partial Content
+INFO:     127.0.0.1:60150 - "GET /video/02b03b2e/1000002410.mp4 HTTP/1.1" 206 Partial Content
+INFO:     127.0.0.1:60164 - "GET /video/02b03b2e/1000002410.mp4 HTTP/1.1" 206 Partial Content
+INFO:     127.0.0.1:54724 - "GET /video/02b03b2e/1000002410.mp4 HTTP/1.1" 206 Partial Content
+INFO:     127.0.0.1:47092 - "GET /video/02b03b2e/1000002410.mp4 HTTP/1.1" 206 Partial Content
+INFO:     198.163.193.169:0 - "GET / HTTP/1.1" 200 OK
+INFO:     127.0.0.1:39974 - "GET /room-info/sasha-and-aziz/ HTTP/1.1" 307 Temporary Redirect
+INFO:     ('127.0.0.1', 60944) - "WebSocket /ws/sasha-and-aziz/?name=%D0%B0%D0%B7%D0%B8%D0%B7" 403
+INFO:     connection rejected (403 Forbidden)
+INFO:     connection closed
+INFO:     127.0.0.1:48054 - "POST /upload HTTP/1.1" 200 OK
+INFO:     127.0.0.1:48068 - "GET /video/de6d3193/V_poiskah_Alyaski_1_sezon_-_7_seriya_%28anwap.org%29.mp4 HTTP/1.1" 206 Partial Content
+INFO:     127.0.0.1:33832 - "GET /room/de6d3193 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:33836 - "GET /room-info/de6d3193 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:33850 - "GET /video/de6d3193/V_poiskah_Alyaski_1_sezon_-_7_seriya_%28anwap.org%29.mp4 HTTP/1.1" 206 Partial Content
+INFO:     ('127.0.0.1', 33856) - "WebSocket /ws/de6d3193?name=%D1%81%D0%B8%D1%81%D1%8C%D0%BA%D0%B8%20%D1%81%D0%B0%D1%88%D0%B8" [accepted]
+INFO:     connection open
+INFO:     connection closed
+INFO:     connection closed
+INFO:     127.0.0.1:47450 - "GET /room/de6d3193 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:47462 - "GET /room-info/de6d3193 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:47478 - "GET /video/de6d3193/V_poiskah_Alyaski_1_sezon_-_7_seriya_%28anwap.org%29.mp4 HTTP/1.1" 206 Partial Content
+INFO:     ('127.0.0.1', 47560) - "WebSocket /ws/de6d3193?name=%D0%BB%D0%B8%D0%BD%D0%B8" [accepted]
+INFO:     connection open
+INFO:     127.0.0.1:47574 - "GET /video/de6d3193/V_poiskah_Alyaski_1_sezon_-_7_seriya_%28anwap.org%29.mp4 HTTP/1.1" 206 Partial Content
+INFO:     127.0.0.1:38978 - "GET /room/de6d3193 HTTP/1.1" 200 OK
+INFO:     connection closed
+INFO:     127.0.0.1:38994 - "GET /room-info/de6d3193 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:39008 - "GET /video/de6d3193/V_poiskah_Alyaski_1_sezon_-_7_seriya_%28anwap.org%29.mp4 HTTP/1.1" 206 Partial Content
+INFO:     ('127.0.0.1', 39016) - "WebSocket /ws/de6d3193?name=%D0%B0%D0%B7%D0%B8%D0%B7%D0%B8" [accepted]
+INFO:     connection open
+INFO:     connection closed
+INFO:     connection closed
+INFO:     127.0.0.1:56402 - "GET /video/02b03b2e/1000002410.mp4 HTTP/1.1" 206 Partial Content
+INFO:     127.0.0.1:37384 - "GET /video/02b03b2e/1000002410.mp4 HTTP/1.1" 206 Partial Content
+INFO:     198.163.193.169:0 - "GET / HTTP/1.1" 200 OK
+INFO:     127.0.0.1:58070 - "GET /room-info/sasha-and-aziz/ HTTP/1.1" 307 Temporary Redirect
+INFO:     ('127.0.0.1', 58076) - "WebSocket /ws/sasha-and-aziz/?name=Az" 403
+INFO:     connection rejected (403 Forbidden)
+INFO:     connection closed
+INFO:     127.0.0.1:37176 - "POST /upload HTTP/1.1" 200 OK
+INFO:     127.0.0.1:37178 - "GET /video/07b67d4e/1000002487.mp4 HTTP/1.1" 206 Partial Content
+INFO:     127.0.0.1:44562 - "GET /room/07b67d4e HTTP/1.1" 200 OK
+INFO:     127.0.0.1:44570 - "GET /room-info/07b67d4e HTTP/1.1" 200 OK
+INFO:     127.0.0.1:44578 - "GET /video/07b67d4e/1000002487.mp4 HTTP/1.1" 206 Partial Content
+INFO:     ('127.0.0.1', 44590) - "WebSocket /ws/07b67d4e?name=%D0%90%D0%B7" [accepted]
+INFO:     connection open
+INFO:     127.0.0.1:46988 - "GET /room/07b67d4e HTTP/1.1" 200 OK
+INFO:     connection closed
+INFO:     127.0.0.1:60022 - "GET /video/07b67d4e/1000002487.mp4 HTTP/1.1" 206 Partial Content
+INFO:     127.0.0.1:60032 - "GET /video/07b67d4e/1000002487.mp4 HTTP/1.1" 206 Partial Content
+INFO:     127.0.0.1:60034 - "GET /video/07b67d4e/1000002487.mp4 HTTP/1.1" 206 Partial Content
+INFO:     127.0.0.1:60056 - "GET /video/07b67d4e/1000002487.mp4 HTTP/1.1" 206 Partial Content
+INFO:     127.0.0.1:60058 - "GET /video/07b67d4e/1000002487.mp4 HTTP/1.1" 206 Partial Content
+INFO:     127.0.0.1:60070 - "GET /video/07b67d4e/1000002487.mp4 HTTP/1.1" 206 Partial Content
+INFO:     127.0.0.1:60086 - "GET /video/07b67d4e/1000002487.mp4 HTTP/1.1" 206 Partial Content
+INFO:     127.0.0.1:60092 - "GET /video/07b67d4e/1000002487.mp4 HTTP/1.1" 206 Partial Content
+INFO:     127.0.0.1:60098 - "GET /video/07b67d4e/1000002487.mp4 HTTP/1.1" 206 Partial Content
+INFO:     127.0.0.1:60114 - "GET /video/07b67d4e/1000002487.mp4 HTTP/1.1" 206 Partial Content
+INFO:     127.0.0.1:60120 - "GET /video/07b67d4e/1000002487.mp4 HTTP/1.1" 206 Partial Content
+INFO:     127.0.0.1:60124 - "GET /video/07b67d4e/1000002487.mp4 HTTP/1.1" 206 Partial Content
+INFO:     127.0.0.1:60136 - "GET /video/07b67d4e/1000002487.mp4 HTTP/1.1" 206 Partial Content
+INFO:     127.0.0.1:60150 - "GET /video/07b67d4e/1000002487.mp4 HTTP/1.1" 206 Partial Content
+INFO:     127.0.0.1:60162 - "GET /video/07b67d4e/1000002487.mp4 HTTP/1.1" 206 Partial Content
+INFO:     127.0.0.1:60178 - "GET /video/07b67d4e/1000002487.mp4 HTTP/1.1" 206 Partial Content
+INFO:     127.0.0.1:60194 - "GET /video/07b67d4e/1000002487.mp4 HTTP/1.1" 206 Partial Content
+INFO:     127.0.0.1:60208 - "GET /video/07b67d4e/1000002487.mp4 HTTP/1.1" 206 Partial Content
+INFO:     127.0.0.1:60246 - "GET /video/07b67d4e/1000002487.mp4 HTTP/1.1" 206 Partial Content
+INFO:     127.0.0.1:60258 - "GET /video/07b67d4e/1000002487.mp4 HTTP/1.1" 206 Partial Content
+INFO:     127.0.0.1:60270 - "GET /video/07b67d4e/1000002487.mp4 HTTP/1.1" 206 Partial Content
+INFO:     127.0.0.1:60274 - "GET /video/07b67d4e/1000002487.mp4 HTTP/1.1" 206 Partial Content
+INFO:     127.0.0.1:60286 - "GET /video/07b67d4e/1000002487.mp4 HTTP/1.1" 206 Partial Content
+INFO:     127.0.0.1:60294 - "GET /room/07b67d4e HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60298 - "GET /room-info/07b67d4e HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60302 - "GET /video/07b67d4e/1000002487.mp4 HTTP/1.1" 206 Partial Content
+INFO:     ('127.0.0.1', 54870) - "WebSocket /ws/07b67d4e?name=%D0%90%D0%B7" [accepted]
+INFO:     connection open
+INFO:     127.0.0.1:38346 - "GET /video/07b67d4e/1000002487.mp4 HTTP/1.1" 206 Partial Content
+INFO:     127.0.0.1:58592 - "GET /room/07b67d4e HTTP/1.1" 200 OK
+INFO:     127.0.0.1:58608 - "GET /room-info/07b67d4e HTTP/1.1" 200 OK
+INFO:     127.0.0.1:58622 - "GET /video/07b67d4e/1000002487.mp4 HTTP/1.1" 206 Partial Content
+INFO:     ('127.0.0.1', 58626) - "WebSocket /ws/07b67d4e?name=%D0%BB%D0%B8%D0%BD%D0%B8" [accepted]
+INFO:     connection open
+INFO:     connection closed
+INFO:     127.0.0.1:50908 - "GET /room/07b67d4e HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50920 - "GET /room-info/07b67d4e HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50930 - "GET /video/07b67d4e/1000002487.mp4 HTTP/1.1" 206 Partial Content
+INFO:     ('127.0.0.1', 50940) - "WebSocket /ws/07b67d4e?name=%D0%9B%D1%8E%D0%B1%D0%BB%D1%8E%20%D1%81%D0%B0%D1%88%D1%83" [accepted]
+INFO:     connection open
+INFO:     127.0.0.1:39796 - "GET /video/07b67d4e/1000002487.mp4 HTTP/1.1" 206 Partial Content
+INFO:     127.0.0.1:39806 - "GET /video/07b67d4e/1000002487.mp4 HTTP/1.1" 206 Partial Content
+INFO:     127.0.0.1:57472 - "GET /video/07b67d4e/1000002487.mp4 HTTP/1.1" 206 Partial Content
+INFO:     127.0.0.1:56866 - "GET /video/07b67d4e/1000002487.mp4 HTTP/1.1" 206 Partial Content
+INFO:     connection closed
+INFO:     connection closed
+INFO:     127.0.0.1:40512 - "GET /video/07b67d4e/1000002487.mp4 HTTP/1.1" 206 Partial Content
